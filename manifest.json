@@ -1,0 +1,95 @@
+{
+ "v": 1,
+ "channels": {
+  "esp32s3": {
+   "version": "1.3.1",
+   "file": "anker-esp32s3-1.3.1.bin",
+   "size": 1702464,
+   "sha256": "b6ae2279884dcac582ac1acd7c5e208d02b92635f89b67446454f544b8a1ffa4",
+   "sig": "MEUCIQCx4tNoG92GZKDuVfokQdYSpguWRV5fieCCxa7y2FxpewIgQpuPfKzdxNoIjZ2i2fYNiOfjCM+37s+deHLqdl5Oklc=",
+   "log": [
+    {
+     "v": "1.3.1",
+     "t": "- Software-Update: Vor der Installation zeigt das Geraet die Aenderungen aller neueren Versionen zusammen; installiert wird erst nach Bestaetigung. Das Update-Repository ist in den Einstellungen waehlbar (Vorgabe HansMueller4711/esp-anker-releases).\n- Standort (Breiten- und Laengengrad) in den allgemeinen Einstellungen, mit Ortssuche; der Kraftstoffpreis nutzt ihn. Zugangsdaten und Einstellungen bleiben bei Updates erhalten."
+    },
+    {
+     "v": "1.3.0",
+     "t": "- Touch-Geraet: **Statistik** (Reiter und Webseite): Einsparung in kWh und Euro fuer Gesamtanlage, PV-Anlage, Heimspeicher (mit Ladezyklen), Wallbox/eAuto (gegen Netzstrom und Kraftstoff), Waermepumpe und CO2. Messung der Anteile (Speicherladung aus PV, Wallbox/Waermepumpe aus PV bzw. Speicher) im Mischungsmodell, Preise je Tag in /stat.bin, Zeitraeume wie im Verlauf. /api/stats, MQTT stat/..., Befehle cmd/fuel_price, cmd/price_buy, cmd/price_sell.\n- Kraftstoffpreis: von Hand, aus ioBroker (MQTT) oder aus dem Internet (Tankerkoenig, API-Schluessel nur im Geraet, Koordinaten-Suchhilfe in den Einstellungen). Strompreise als Dezimalzahlen (ct/kWh).\n- Prioritaet: Statuszeile auf der Startseite u"
+    },
+    {
+     "v": "1.2.4",
+     "t": "- MQTT-Heartbeat mit Vorrang: Bei 1.2.2/1.2.3 wurde der Heartbeat bei vollem Sendepuffer ausgelassen und erst 5 s spaeter wieder versucht, oft mit gleichem Ergebnis, waehrend alle anderen Werte ankamen. ioBroker meldete dann \"ESP nicht erreichbar\" (und loeste nach 2 min den Fallback aus). Jetzt wird der Heartbeat zuerst gesendet und bei vollem Puffer in jedem Durchlauf wiederholt."
+    },
+    {
+     "v": "1.2.3",
+     "t": "- MQTT: Watchdog gegen haengenden Sendeweg. Bei 1.2.2 konnte der Sendepuffer dauerhaft voll bleiben, obwohl die Verbindung formal stand; dann gingen keine Werte und kein Heartbeat mehr raus (ioBroker meldete \"ESP nicht erreichbar\", Weboberflaeche und Regelung liefen normal). Jetzt: ohne erfolgreiche Sendung seit 15 s wird die Verbindung neu aufgebaut."
+    },
+    {
+     "v": "1.2.2",
+     "t": "- MQTT-Abbrueche behoben (Ursache am Datenstrom, nicht am Broker): Der TCP-Sendepuffer ist mit lwIP im Sparmodus nur ca. 1 KB gross, das Status-JSON (bis 1,3 KB) und die Bursts der Einzelwerte passten nicht hinein. PubSubClient wertet ein nur teilweise geschriebenes Paket nicht aus, der Broker las die Folgepakete als Teil des alten Pakets (\"Cannot parse topic\", \"pubrel for unknown message ID\") und trennte die Verbindung (40 bis 110 Neuverbindungen pro Tag; jede liess eine Vorgabe von ioBroker kurz auslaufen). Jetzt: Senden nur wenn das ganze Paket in den freien Puffer passt, das Status-JSON in Stuecken von 320 Byte mit Wartezeit auf freien Puffer (max. 250 ms), die Einzelwerte werden bei vol"
+    },
+    {
+     "v": "1.2.1",
+     "t": "- Korrektur der Doku: cFos zaehlt einen ladenden Speicher nicht als Verbrauch; mit eingetragenem Speicher bekaeme das Auto im Ueberschuss-Modus Vorrang vor dem Speicher (bei 1.2.0 stand faelschlich das Gegenteil in der Hilfe). Loesung in der cFos: \"Formel fuer solaren Ueberschuss\" `CM._org_surplus - (CM._storage_home_soc >= 97 ? 0 : 3000)` und Laderegelsatz \"PV surplus\" (siehe Hilfe 4.2 und docs/cfos/README.md). Die Formel wurde an der echten cFos geprueft (Ueberschuss = PV - Haus - 3000 W bei SOC < 97 %).\n- Statusseite: Kachel \"PV\" heisst jetzt \"PV am Anker\" (zeigt nur die PV-Eingaenge des Ankers), Text \"kein PV-Eingang belegt\"."
+    },
+    {
+     "v": "1.2.0",
+     "t": "- Neu: Wallbox (optional, Einstellungen > Wallbox). Der ESP liest die Ladeleistung einer Wallbox (cFos Power Brain per Modbus TCP, oder beliebiges Geraet mit JSON-Antwort ueber HTTP: Shelly, Tasmota, go-eCharger mit Listenfeld \"nrg[11]\" und Faktor). Laedt ein E-Auto, wird die Entladung des Speichers gesperrt (oder der Speicher ruht ganz, oder nur Anzeige); Schwelle und Nachlaufzeit einstellbar. Die Sperre gilt fuer alle Quellen, auch fuer Vorgaben von ioBroker/HA, und wirkt sofort. Faellt die Wallbox aus, wird nach 60 s nicht mehr gesperrt. Statusseite (Punkt \"Wallbox\"), /api/status (Block \"wallbox\"), MQTT (wallbox/power_w, charging, block, ok), Ereignisprotokoll, Hilfe 4.2. Die Optimierung "
+    },
+    {
+     "v": "1.1.0",
+     "t": "- OLED: I2C-Pins (SDA/SCL) frei waehlbar (D1-D7), optional GND-/VCC-Pin ueber GPIO, Pinpruefung per I2C-Scan vor dem Speichern, Display-Erkennung beim Start (Statusseite, serielle Ausgabe). D8/GPIO15 ist als GND-Pin gesperrt (haelt den ESP im ROM-Modus \"waiting for host\").\n- Neu: Seite \"Optimierung\" (misst Zaehler und Anker, schlaegt Regelwerte vor), Regelguete-Anzeige, Schalter \"Fremdsteuerung erlauben\" (Standalone), sauberes Schliessen aller Verbindungen vor Neustart/Update (Anker meldet sich danach in Sekunden statt nach einer Minute zurueck), MQTT-Durchreiche aller Anker-Register, Einzelwert-Befehle, Telegram-/Fallback-Konzept fuer ioBroker (siehe Hilfe).\n- Robustheit: strenge Typpruefun"
+    },
+    {
+     "v": "1.0.0",
+     "t": "- Erste Version: Hichi/KSEM/Fronius, Anker per Modbus TCP, Weboberflaeche, OLED, MQTT, WiFiManager, OTA."
+    }
+   ]
+  },
+  "esp32c3": {
+   "version": "1.3.1",
+   "file": "anker-esp32c3-1.3.1.bin",
+   "size": 1513184,
+   "sha256": "2c25639269ec546274cfedf4de583a58d60b9573e093aab9ad438f0eec524ef8",
+   "sig": "MEUCIDqDY9bWubhHX0nHpxv6qCuy33TPFd+U3MLOBdNeOMyHAiEA1MlNXtvZYOtSpiXh1CMe2Ac3STYu1su+t/RLNCDn558=",
+   "log": [
+    {
+     "v": "1.3.1",
+     "t": "- Software-Update: Vor der Installation zeigt das Geraet die Aenderungen aller neueren Versionen zusammen; installiert wird erst nach Bestaetigung. Das Update-Repository ist in den Einstellungen waehlbar (Vorgabe HansMueller4711/esp-anker-releases).\n- Standort (Breiten- und Laengengrad) in den allgemeinen Einstellungen, mit Ortssuche; der Kraftstoffpreis nutzt ihn. Zugangsdaten und Einstellungen bleiben bei Updates erhalten."
+    },
+    {
+     "v": "1.3.0",
+     "t": "- Touch-Geraet: **Statistik** (Reiter und Webseite): Einsparung in kWh und Euro fuer Gesamtanlage, PV-Anlage, Heimspeicher (mit Ladezyklen), Wallbox/eAuto (gegen Netzstrom und Kraftstoff), Waermepumpe und CO2. Messung der Anteile (Speicherladung aus PV, Wallbox/Waermepumpe aus PV bzw. Speicher) im Mischungsmodell, Preise je Tag in /stat.bin, Zeitraeume wie im Verlauf. /api/stats, MQTT stat/..., Befehle cmd/fuel_price, cmd/price_buy, cmd/price_sell.\n- Kraftstoffpreis: von Hand, aus ioBroker (MQTT) oder aus dem Internet (Tankerkoenig, API-Schluessel nur im Geraet, Koordinaten-Suchhilfe in den Einstellungen). Strompreise als Dezimalzahlen (ct/kWh).\n- Prioritaet: Statuszeile auf der Startseite u"
+    },
+    {
+     "v": "1.2.4",
+     "t": "- MQTT-Heartbeat mit Vorrang: Bei 1.2.2/1.2.3 wurde der Heartbeat bei vollem Sendepuffer ausgelassen und erst 5 s spaeter wieder versucht, oft mit gleichem Ergebnis, waehrend alle anderen Werte ankamen. ioBroker meldete dann \"ESP nicht erreichbar\" (und loeste nach 2 min den Fallback aus). Jetzt wird der Heartbeat zuerst gesendet und bei vollem Puffer in jedem Durchlauf wiederholt."
+    },
+    {
+     "v": "1.2.3",
+     "t": "- MQTT: Watchdog gegen haengenden Sendeweg. Bei 1.2.2 konnte der Sendepuffer dauerhaft voll bleiben, obwohl die Verbindung formal stand; dann gingen keine Werte und kein Heartbeat mehr raus (ioBroker meldete \"ESP nicht erreichbar\", Weboberflaeche und Regelung liefen normal). Jetzt: ohne erfolgreiche Sendung seit 15 s wird die Verbindung neu aufgebaut."
+    },
+    {
+     "v": "1.2.2",
+     "t": "- MQTT-Abbrueche behoben (Ursache am Datenstrom, nicht am Broker): Der TCP-Sendepuffer ist mit lwIP im Sparmodus nur ca. 1 KB gross, das Status-JSON (bis 1,3 KB) und die Bursts der Einzelwerte passten nicht hinein. PubSubClient wertet ein nur teilweise geschriebenes Paket nicht aus, der Broker las die Folgepakete als Teil des alten Pakets (\"Cannot parse topic\", \"pubrel for unknown message ID\") und trennte die Verbindung (40 bis 110 Neuverbindungen pro Tag; jede liess eine Vorgabe von ioBroker kurz auslaufen). Jetzt: Senden nur wenn das ganze Paket in den freien Puffer passt, das Status-JSON in Stuecken von 320 Byte mit Wartezeit auf freien Puffer (max. 250 ms), die Einzelwerte werden bei vol"
+    },
+    {
+     "v": "1.2.1",
+     "t": "- Korrektur der Doku: cFos zaehlt einen ladenden Speicher nicht als Verbrauch; mit eingetragenem Speicher bekaeme das Auto im Ueberschuss-Modus Vorrang vor dem Speicher (bei 1.2.0 stand faelschlich das Gegenteil in der Hilfe). Loesung in der cFos: \"Formel fuer solaren Ueberschuss\" `CM._org_surplus - (CM._storage_home_soc >= 97 ? 0 : 3000)` und Laderegelsatz \"PV surplus\" (siehe Hilfe 4.2 und docs/cfos/README.md). Die Formel wurde an der echten cFos geprueft (Ueberschuss = PV - Haus - 3000 W bei SOC < 97 %).\n- Statusseite: Kachel \"PV\" heisst jetzt \"PV am Anker\" (zeigt nur die PV-Eingaenge des Ankers), Text \"kein PV-Eingang belegt\"."
+    },
+    {
+     "v": "1.2.0",
+     "t": "- Neu: Wallbox (optional, Einstellungen > Wallbox). Der ESP liest die Ladeleistung einer Wallbox (cFos Power Brain per Modbus TCP, oder beliebiges Geraet mit JSON-Antwort ueber HTTP: Shelly, Tasmota, go-eCharger mit Listenfeld \"nrg[11]\" und Faktor). Laedt ein E-Auto, wird die Entladung des Speichers gesperrt (oder der Speicher ruht ganz, oder nur Anzeige); Schwelle und Nachlaufzeit einstellbar. Die Sperre gilt fuer alle Quellen, auch fuer Vorgaben von ioBroker/HA, und wirkt sofort. Faellt die Wallbox aus, wird nach 60 s nicht mehr gesperrt. Statusseite (Punkt \"Wallbox\"), /api/status (Block \"wallbox\"), MQTT (wallbox/power_w, charging, block, ok), Ereignisprotokoll, Hilfe 4.2. Die Optimierung "
+    },
+    {
+     "v": "1.1.0",
+     "t": "- OLED: I2C-Pins (SDA/SCL) frei waehlbar (D1-D7), optional GND-/VCC-Pin ueber GPIO, Pinpruefung per I2C-Scan vor dem Speichern, Display-Erkennung beim Start (Statusseite, serielle Ausgabe). D8/GPIO15 ist als GND-Pin gesperrt (haelt den ESP im ROM-Modus \"waiting for host\").\n- Neu: Seite \"Optimierung\" (misst Zaehler und Anker, schlaegt Regelwerte vor), Regelguete-Anzeige, Schalter \"Fremdsteuerung erlauben\" (Standalone), sauberes Schliessen aller Verbindungen vor Neustart/Update (Anker meldet sich danach in Sekunden statt nach einer Minute zurueck), MQTT-Durchreiche aller Anker-Register, Einzelwert-Befehle, Telegram-/Fallback-Konzept fuer ioBroker (siehe Hilfe).\n- Robustheit: strenge Typpruefun"
+    },
+    {
+     "v": "1.0.0",
+     "t": "- Erste Version: Hichi/KSEM/Fronius, Anker per Modbus TCP, Weboberflaeche, OLED, MQTT, WiFiManager, OTA."
+    }
+   ]
+  }
+ }
+}
