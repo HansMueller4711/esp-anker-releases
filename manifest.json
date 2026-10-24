@@ -2,12 +2,16 @@
  "v": 1,
  "channels": {
   "esp32s3": {
-   "version": "1.3.1",
-   "file": "anker-esp32s3-1.3.1.bin",
-   "size": 1702464,
-   "sha256": "b6ae2279884dcac582ac1acd7c5e208d02b92635f89b67446454f544b8a1ffa4",
-   "sig": "MEUCIQCx4tNoG92GZKDuVfokQdYSpguWRV5fieCCxa7y2FxpewIgQpuPfKzdxNoIjZ2i2fYNiOfjCM+37s+deHLqdl5Oklc=",
+   "version": "1.3.2",
+   "file": "anker-esp32s3-1.3.2.bin",
+   "size": 1702016,
+   "sha256": "33b23878ff96f3b443be292cc46a3ce2503c062e8ff5c6211f03b9d2528fc9b5",
+   "sig": "MEUCIQCqeqddIg8G1FBaxkE6XzTftiR4tfYnCavyopZCSSGOugIgX6qAxDXbegYPustmpSYWvPLAocdTQ0nP47Z/hn7wVkg=",
    "log": [
+    {
+     "v": "1.3.2",
+     "t": "- Software-Update: Installation gibt der Leerlaufaufgabe Zeit, Diagnose-Spur im RTC-Speicher."
+    },
     {
      "v": "1.3.1",
      "t": "- Software-Update: Vor der Installation zeigt das Geraet die Aenderungen aller neueren Versionen zusammen; installiert wird erst nach Bestaetigung. Das Update-Repository ist in den Einstellungen waehlbar (Vorgabe HansMueller4711/esp-anker-releases).\n- Standort (Breiten- und Laengengrad) in den allgemeinen Einstellungen, mit Ortssuche; der Kraftstoffpreis nutzt ihn. Zugangsdaten und Einstellungen bleiben bei Updates erhalten."
@@ -47,12 +51,16 @@
    ]
   },
   "esp32c3": {
-   "version": "1.3.1",
-   "file": "anker-esp32c3-1.3.1.bin",
-   "size": 1513184,
-   "sha256": "2c25639269ec546274cfedf4de583a58d60b9573e093aab9ad438f0eec524ef8",
-   "sig": "MEUCIDqDY9bWubhHX0nHpxv6qCuy33TPFd+U3MLOBdNeOMyHAiEA1MlNXtvZYOtSpiXh1CMe2Ac3STYu1su+t/RLNCDn558=",
+   "version": "1.3.2",
+   "file": "anker-esp32c3-1.3.2.bin",
+   "size": 1512880,
+   "sha256": "c59ebd917713ac48d9496a8587b91624fac7e5068bc7ad30357f777ef472aae5",
+   "sig": "MEUCIQC3tXwypo3QDd4xwYOKzyALvNgtpwmnfqcF0gQFYLZJswIgEdtO0czHoimbvFK4F7qsWgR0BUf+NNOmqwrlCeeIsTY=",
    "log": [
+    {
+     "v": "1.3.2",
+     "t": "- Software-Update: Installation gibt der Leerlaufaufgabe Zeit, Diagnose-Spur im RTC-Speicher."
+    },
     {
      "v": "1.3.1",
      "t": "- Software-Update: Vor der Installation zeigt das Geraet die Aenderungen aller neueren Versionen zusammen; installiert wird erst nach Bestaetigung. Das Update-Repository ist in den Einstellungen waehlbar (Vorgabe HansMueller4711/esp-anker-releases).\n- Standort (Breiten- und Laengengrad) in den allgemeinen Einstellungen, mit Ortssuche; der Kraftstoffpreis nutzt ihn. Zugangsdaten und Einstellungen bleiben bei Updates erhalten."
