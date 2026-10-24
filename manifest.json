@@ -2,12 +2,16 @@
  "v": 1,
  "channels": {
   "esp32s3": {
-   "version": "1.3.6",
-   "file": "anker-esp32s3-1.3.6.bin",
-   "size": 1843056,
-   "sha256": "7675b54d9b1d72df664472049ff954feb2c11cf18aab842c7cc2a402d9e2a26c",
-   "sig": "MEYCIQCUbiWpK/zLw9Nt3uqSkgfhhlydl/6mu2BHHs5UoUKJuwIhALCl3Ve3ZXowwLzthcRRv3FUuNp+dqHCsmZkKPtGtaff",
+   "version": "1.3.7",
+   "file": "anker-esp32s3-1.3.7.bin",
+   "size": 1842944,
+   "sha256": "50a86af50d5e6470810d00eacc4d8722527021404d6d9cf16983673f9ac7cabf",
+   "sig": "MEYCIQCoU/tD+i8tFG7SI4tVWbPDfye2mhumJfKFkTtFNwirNQIhANZ5o1hZ94ZPRrJoXi+CzKg+6tLdWuqjPZ383W1utlsc",
    "log": [
+    {
+     "v": "1.3.7",
+     "t": "- Korrektur: Der Dialog \"Wirklich ausschalten?\" schloss sich sofort wieder (Zeitvergleich ohne Vorzeichen); ein Tipp auf \"Ausschalten\" im Dialog genuegt jetzt."
+    },
     {
      "v": "1.3.6",
      "t": "- Display: Verlauf > Kurve zeigt die Tageskurve (heute/gestern, Tippen oder Ziehen waehlt die Minute)."
@@ -51,20 +55,20 @@
     {
      "v": "1.2.1",
      "t": "- Korrektur der Doku: cFos zaehlt einen ladenden Speicher nicht als Verbrauch; mit eingetragenem Speicher bekaeme das Auto im Ueberschuss-Modus Vorrang vor dem Speicher (bei 1.2.0 stand faelschlich das Gegenteil in der Hilfe). Loesung in der cFos: \"Formel fuer solaren Ueberschuss\" `CM._org_surplus - (CM._storage_home_soc >= 97 ? 0 : 3000)` und Laderegelsatz \"PV surplus\" (siehe Hilfe 4.2 und docs/cfos/README.md). Die Formel wurde an der echten cFos geprueft (Ueberschuss = PV - Haus - 3000 W bei SOC < 97 %).\n- Statusseite: Kachel \"PV\" heisst jetzt \"PV am Anker\" (zeigt nur die PV-Eingaenge des Ankers), Text \"kein PV-Eingang belegt\"."
-    },
-    {
-     "v": "1.2.0",
-     "t": "- Neu: Wallbox (optional, Einstellungen > Wallbox). Der ESP liest die Ladeleistung einer Wallbox (cFos Power Brain per Modbus TCP, oder beliebiges Geraet mit JSON-Antwort ueber HTTP: Shelly, Tasmota, go-eCharger mit Listenfeld \"nrg[11]\" und Faktor). Laedt ein E-Auto, wird die Entladung des Speichers gesperrt (oder der Speicher ruht ganz, oder nur Anzeige); Schwelle und Nachlaufzeit einstellbar. Die Sperre gilt fuer alle Quellen, auch fuer Vorgaben von ioBroker/HA, und wirkt sofort. Faellt die Wallbox aus, wird nach 60 s nicht mehr gesperrt. Statusseite (Punkt \"Wallbox\"), /api/status (Block \"wallbox\"), MQTT (wallbox/power_w, charging, block, ok), Ereignisprotokoll, Hilfe 4.2. Die Optimierung "
     }
    ]
   },
   "esp32c3": {
-   "version": "1.3.6",
-   "file": "anker-esp32c3-1.3.6.bin",
+   "version": "1.3.7",
+   "file": "anker-esp32c3-1.3.7.bin",
    "size": 1539008,
-   "sha256": "161ebef052dc289980f55675bbca7e5ff19870e520f9ef786a4876677fe0a6f4",
-   "sig": "MEUCIQCg08fa3Hp+XMEdv5fjb4HT6vUWl7dRoS5IHdvBo18ozQIgQSDQyQD/A1sXwQqnMLyCl94fy3OOjLz4vU+s9/uCSXU=",
+   "sha256": "14bb6b25fde2e1c4b56b601fda92ff8bbc0025388263c251537e8faec90246b3",
+   "sig": "MEQCIEjWRuJpKe5zALVKtyW+O9xNT0s3tw5X6HbZl+cBryg/AiBp71U5jOel6s4UjkgmamHYWWCd3+5jSGzERrfBkSmF7g==",
    "log": [
+    {
+     "v": "1.3.7",
+     "t": "- Korrektur: Der Dialog \"Wirklich ausschalten?\" schloss sich sofort wieder (Zeitvergleich ohne Vorzeichen); ein Tipp auf \"Ausschalten\" im Dialog genuegt jetzt."
+    },
     {
      "v": "1.3.6",
      "t": "- Display: Verlauf > Kurve zeigt die Tageskurve (heute/gestern, Tippen oder Ziehen waehlt die Minute)."
@@ -108,10 +112,6 @@
     {
      "v": "1.2.1",
      "t": "- Korrektur der Doku: cFos zaehlt einen ladenden Speicher nicht als Verbrauch; mit eingetragenem Speicher bekaeme das Auto im Ueberschuss-Modus Vorrang vor dem Speicher (bei 1.2.0 stand faelschlich das Gegenteil in der Hilfe). Loesung in der cFos: \"Formel fuer solaren Ueberschuss\" `CM._org_surplus - (CM._storage_home_soc >= 97 ? 0 : 3000)` und Laderegelsatz \"PV surplus\" (siehe Hilfe 4.2 und docs/cfos/README.md). Die Formel wurde an der echten cFos geprueft (Ueberschuss = PV - Haus - 3000 W bei SOC < 97 %).\n- Statusseite: Kachel \"PV\" heisst jetzt \"PV am Anker\" (zeigt nur die PV-Eingaenge des Ankers), Text \"kein PV-Eingang belegt\"."
-    },
-    {
-     "v": "1.2.0",
-     "t": "- Neu: Wallbox (optional, Einstellungen > Wallbox). Der ESP liest die Ladeleistung einer Wallbox (cFos Power Brain per Modbus TCP, oder beliebiges Geraet mit JSON-Antwort ueber HTTP: Shelly, Tasmota, go-eCharger mit Listenfeld \"nrg[11]\" und Faktor). Laedt ein E-Auto, wird die Entladung des Speichers gesperrt (oder der Speicher ruht ganz, oder nur Anzeige); Schwelle und Nachlaufzeit einstellbar. Die Sperre gilt fuer alle Quellen, auch fuer Vorgaben von ioBroker/HA, und wirkt sofort. Faellt die Wallbox aus, wird nach 60 s nicht mehr gesperrt. Statusseite (Punkt \"Wallbox\"), /api/status (Block \"wallbox\"), MQTT (wallbox/power_w, charging, block, ok), Ereignisprotokoll, Hilfe 4.2. Die Optimierung "
     }
    ]
   }
