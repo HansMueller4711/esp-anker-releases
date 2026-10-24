@@ -2,12 +2,16 @@
  "v": 1,
  "channels": {
   "esp32s3": {
-   "version": "1.3.3",
-   "file": "anker-esp32s3-1.3.3.bin",
-   "size": 1794112,
-   "sha256": "67035b6aa6fb3b3fe58d76d3bb458d79ec01396c2f0c639a74c462597c5326e8",
-   "sig": "MEYCIQDKi9d3PhEQ5PpOrWllsHwniSMEFNglSRhYPAtRccRf1gIhAJ52+1tKCloMQNgR5Eaet7gcIHDKl5axiiDrpo62vTa/",
+   "version": "1.3.4",
+   "file": "anker-esp32s3-1.3.4.bin",
+   "size": 1799856,
+   "sha256": "69179331b9a51e3ad953f17053620d05af2de5e20712167a9d25f77f96ab4bf0",
+   "sig": "MEQCIDlxtd0UOjNlVj3jp+3ojFxBj2BvY01e/TCCv7oqfVgyAiB77cImPpgkltMKHu9LIsxT8n/MAj4Tf+0WHpphRpBzMA==",
    "log": [
+    {
+     "v": "1.3.4",
+     "t": "- Korrektur: Das Pop-up \"Neue Version\" auf dem Display reagiert jetzt auf Tipps (Aenderungen, Spaeter, Installieren).\n- Statistik: Tage ohne Einspeisemessung (importierte Erzeugung) zaehlten bisher komplett als Eigenverbrauch und verfaelschten \"Netzbezug vermieden\", Ersparnis, Autarkie und Eigenverbrauch stark. Sie zaehlen jetzt nur noch in Erzeugung und CO2.\n- Statistik: Startwerte (bisherige Summen) mit Rechenfeld in den Einstellungen; sie werden im Zeitraum Gesamt aufaddiert.\n- Anzeige: \"Heimspeicher\" heisst ueberall \"Hausakku\" (kurz \"Akku\"); im Fluss keine Ueberdeckung mehr. Titel der gruenen Kopfzeile einstellbar (Display und Web).\n- System > Geraet: Auf Updates pruefen, Ausschalten neb"
+    },
     {
      "v": "1.3.3",
      "t": "- Update-Hinweis: Steht eine neue Version bereit, erscheint auf dem Display ein Fenster (Aenderungen ansehen, installieren oder spaeter) und beim Oeffnen der Weboberflaeche ein Hinweis mit \"Update starten\" (zeigt zuerst das Aenderungsprotokoll) und \"Spaeter\". \"Spaeter\" merkt sich die Version: eine Erinnerung gibt es erst bei der naechsten neuen Version.\n- Telegram-Bot (nur Touch-Geraet) fuer Anlagen ohne ioBroker: Tagesstatus, Fehlerinfo, Vergleichsmeldung, Abfragen per Chat, erlaubte Benutzer."
@@ -55,12 +59,16 @@
    ]
   },
   "esp32c3": {
-   "version": "1.3.3",
-   "file": "anker-esp32c3-1.3.3.bin",
-   "size": 1519504,
-   "sha256": "c7908e8f4a0de1d6ea7a00bc337c93f4b3505b2df3cbe40e042e11defd38d291",
-   "sig": "MEYCIQCSzkdVS17RL4HdVrLyiMaU43alX+rX1qMe1rNBTgChoAIhAJrguzP+ViNMt+KhkeeoCp2F1262v5LVSmr7AvUB1Loz",
+   "version": "1.3.4",
+   "file": "anker-esp32c3-1.3.4.bin",
+   "size": 1523936,
+   "sha256": "f20b98e3634209363a377738b91d5f1b45452a420d8ba040afc6c2e72cec0c28",
+   "sig": "MEUCIBboyWL1MLUAGRHme8vKGDM2yP0AX8M60dl08MFHM0/gAiEAq1sxXO8zEHFlRdAr/GXoH+HRCsLxJczBRXL7voAo9bk=",
    "log": [
+    {
+     "v": "1.3.4",
+     "t": "- Korrektur: Das Pop-up \"Neue Version\" auf dem Display reagiert jetzt auf Tipps (Aenderungen, Spaeter, Installieren).\n- Statistik: Tage ohne Einspeisemessung (importierte Erzeugung) zaehlten bisher komplett als Eigenverbrauch und verfaelschten \"Netzbezug vermieden\", Ersparnis, Autarkie und Eigenverbrauch stark. Sie zaehlen jetzt nur noch in Erzeugung und CO2.\n- Statistik: Startwerte (bisherige Summen) mit Rechenfeld in den Einstellungen; sie werden im Zeitraum Gesamt aufaddiert.\n- Anzeige: \"Heimspeicher\" heisst ueberall \"Hausakku\" (kurz \"Akku\"); im Fluss keine Ueberdeckung mehr. Titel der gruenen Kopfzeile einstellbar (Display und Web).\n- System > Geraet: Auf Updates pruefen, Ausschalten neb"
+    },
     {
      "v": "1.3.3",
      "t": "- Update-Hinweis: Steht eine neue Version bereit, erscheint auf dem Display ein Fenster (Aenderungen ansehen, installieren oder spaeter) und beim Oeffnen der Weboberflaeche ein Hinweis mit \"Update starten\" (zeigt zuerst das Aenderungsprotokoll) und \"Spaeter\". \"Spaeter\" merkt sich die Version: eine Erinnerung gibt es erst bei der naechsten neuen Version.\n- Telegram-Bot (nur Touch-Geraet) fuer Anlagen ohne ioBroker: Tagesstatus, Fehlerinfo, Vergleichsmeldung, Abfragen per Chat, erlaubte Benutzer."
