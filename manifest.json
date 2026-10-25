@@ -2,12 +2,16 @@
  "v": 1,
  "channels": {
   "esp32s3": {
-   "version": "1.3.7",
-   "file": "anker-esp32s3-1.3.7.bin",
-   "size": 1842944,
-   "sha256": "50a86af50d5e6470810d00eacc4d8722527021404d6d9cf16983673f9ac7cabf",
-   "sig": "MEYCIQCoU/tD+i8tFG7SI4tVWbPDfye2mhumJfKFkTtFNwirNQIhANZ5o1hZ94ZPRrJoXi+CzKg+6tLdWuqjPZ383W1utlsc",
+   "version": "1.3.8",
+   "file": "anker-esp32s3-1.3.8.bin",
+   "size": 1843120,
+   "sha256": "cf2a698378252fcf82ffc9ca135d799723ffa5f554932d2f744193f3bed22e63",
+   "sig": "MEUCIBTAZmSaDY+wv/NsbPtYMj76o+9rOiq1IcrA4wAaonHmAiEAte8ElckY/UgqMPgd/e1hhzpjqGv7wbdZvM2ksAoYcyg=",
    "log": [
+    {
+     "v": "1.3.8",
+     "t": "- Telegram: Antworten auf Befehle (/status, /tag usw.) gingen bei knappem Speicher verloren; sie werden jetzt bei Fehlschlag wiederholt, die Speicherpruefung ist weniger streng.\n- Weboberflaeche: Im Energiefluss steht auf dem Handy \"Akku\" statt \"Hausakku\", die Leistung wird nicht mehr ueberlagert.\n- ESP32-C3: Einstellungen > Ger\u00e4t ausschalten (Regelung anhalten, Daten sichern, Netz trennen) gibt es jetzt auch ohne Display."
+    },
     {
      "v": "1.3.7",
      "t": "- Korrektur: Der Dialog \"Wirklich ausschalten?\" schloss sich sofort wieder (Zeitvergleich ohne Vorzeichen); ein Tipp auf \"Ausschalten\" im Dialog genuegt jetzt."
@@ -51,20 +55,20 @@
     {
      "v": "1.2.2",
      "t": "- MQTT-Abbrueche behoben (Ursache am Datenstrom, nicht am Broker): Der TCP-Sendepuffer ist mit lwIP im Sparmodus nur ca. 1 KB gross, das Status-JSON (bis 1,3 KB) und die Bursts der Einzelwerte passten nicht hinein. PubSubClient wertet ein nur teilweise geschriebenes Paket nicht aus, der Broker las die Folgepakete als Teil des alten Pakets (\"Cannot parse topic\", \"pubrel for unknown message ID\") und trennte die Verbindung (40 bis 110 Neuverbindungen pro Tag; jede liess eine Vorgabe von ioBroker kurz auslaufen). Jetzt: Senden nur wenn das ganze Paket in den freien Puffer passt, das Status-JSON in Stuecken von 320 Byte mit Wartezeit auf freien Puffer (max. 250 ms), die Einzelwerte werden bei vol"
-    },
-    {
-     "v": "1.2.1",
-     "t": "- Korrektur der Doku: cFos zaehlt einen ladenden Speicher nicht als Verbrauch; mit eingetragenem Speicher bekaeme das Auto im Ueberschuss-Modus Vorrang vor dem Speicher (bei 1.2.0 stand faelschlich das Gegenteil in der Hilfe). Loesung in der cFos: \"Formel fuer solaren Ueberschuss\" `CM._org_surplus - (CM._storage_home_soc >= 97 ? 0 : 3000)` und Laderegelsatz \"PV surplus\" (siehe Hilfe 4.2 und docs/cfos/README.md). Die Formel wurde an der echten cFos geprueft (Ueberschuss = PV - Haus - 3000 W bei SOC < 97 %).\n- Statusseite: Kachel \"PV\" heisst jetzt \"PV am Anker\" (zeigt nur die PV-Eingaenge des Ankers), Text \"kein PV-Eingang belegt\"."
     }
    ]
   },
   "esp32c3": {
-   "version": "1.3.7",
-   "file": "anker-esp32c3-1.3.7.bin",
-   "size": 1539008,
-   "sha256": "14bb6b25fde2e1c4b56b601fda92ff8bbc0025388263c251537e8faec90246b3",
-   "sig": "MEQCIEjWRuJpKe5zALVKtyW+O9xNT0s3tw5X6HbZl+cBryg/AiBp71U5jOel6s4UjkgmamHYWWCd3+5jSGzERrfBkSmF7g==",
+   "version": "1.3.8",
+   "file": "anker-esp32c3-1.3.8.bin",
+   "size": 1542336,
+   "sha256": "f45e9108563efb7df033f6e5a5400ab9123999429bb07c3d629ec9aac0d72f8d",
+   "sig": "MEUCIFKLDe94HUNiVw/xoTvLwUZSXOyI29DJ9rMKj0/s1iC8AiEA3ZqG5H8q855tI+NCXOBfQz9Xj3r4scwRlvEbhG1Cxck=",
    "log": [
+    {
+     "v": "1.3.8",
+     "t": "- Telegram: Antworten auf Befehle (/status, /tag usw.) gingen bei knappem Speicher verloren; sie werden jetzt bei Fehlschlag wiederholt, die Speicherpruefung ist weniger streng.\n- Weboberflaeche: Im Energiefluss steht auf dem Handy \"Akku\" statt \"Hausakku\", die Leistung wird nicht mehr ueberlagert.\n- ESP32-C3: Einstellungen > Ger\u00e4t ausschalten (Regelung anhalten, Daten sichern, Netz trennen) gibt es jetzt auch ohne Display."
+    },
     {
      "v": "1.3.7",
      "t": "- Korrektur: Der Dialog \"Wirklich ausschalten?\" schloss sich sofort wieder (Zeitvergleich ohne Vorzeichen); ein Tipp auf \"Ausschalten\" im Dialog genuegt jetzt."
@@ -108,10 +112,6 @@
     {
      "v": "1.2.2",
      "t": "- MQTT-Abbrueche behoben (Ursache am Datenstrom, nicht am Broker): Der TCP-Sendepuffer ist mit lwIP im Sparmodus nur ca. 1 KB gross, das Status-JSON (bis 1,3 KB) und die Bursts der Einzelwerte passten nicht hinein. PubSubClient wertet ein nur teilweise geschriebenes Paket nicht aus, der Broker las die Folgepakete als Teil des alten Pakets (\"Cannot parse topic\", \"pubrel for unknown message ID\") und trennte die Verbindung (40 bis 110 Neuverbindungen pro Tag; jede liess eine Vorgabe von ioBroker kurz auslaufen). Jetzt: Senden nur wenn das ganze Paket in den freien Puffer passt, das Status-JSON in Stuecken von 320 Byte mit Wartezeit auf freien Puffer (max. 250 ms), die Einzelwerte werden bei vol"
-    },
-    {
-     "v": "1.2.1",
-     "t": "- Korrektur der Doku: cFos zaehlt einen ladenden Speicher nicht als Verbrauch; mit eingetragenem Speicher bekaeme das Auto im Ueberschuss-Modus Vorrang vor dem Speicher (bei 1.2.0 stand faelschlich das Gegenteil in der Hilfe). Loesung in der cFos: \"Formel fuer solaren Ueberschuss\" `CM._org_surplus - (CM._storage_home_soc >= 97 ? 0 : 3000)` und Laderegelsatz \"PV surplus\" (siehe Hilfe 4.2 und docs/cfos/README.md). Die Formel wurde an der echten cFos geprueft (Ueberschuss = PV - Haus - 3000 W bei SOC < 97 %).\n- Statusseite: Kachel \"PV\" heisst jetzt \"PV am Anker\" (zeigt nur die PV-Eingaenge des Ankers), Text \"kein PV-Eingang belegt\"."
     }
    ]
   }
