@@ -2,12 +2,16 @@
  "v": 1,
  "channels": {
   "esp32s3": {
-   "version": "1.3.11",
-   "file": "anker-esp32s3-1.3.11.bin",
-   "size": 1847168,
-   "sha256": "8fec7f90f7c4c142b876ddc0c7c96ef624ec5ee357fcd6c18ecf464417a9731f",
-   "sig": "MEQCIAdls+Tz73PQ1EmUQFg918HUZTCQhqaEMDeUo+xV6Nt/AiBrWjMWHzHFwjKbPm6NEGu/j/3fb5DZHtBrEYLXQK9Uew==",
+   "version": "1.3.12",
+   "file": "anker-esp32s3-1.3.12.bin",
+   "size": 1848496,
+   "sha256": "06c8873f5e295336136066e1aa885835a5aa46d98a91ca3a083d7c7aa147a578",
+   "sig": "MEYCIQDRpdCGe5gFFhhz6Rd2dcKc0rjGKUlURSE6zwXu30Pe/wIhAO4jiMBYGrPr+eh+YwpHbyb3JEt2fmHjLGLSvmZuCu3+",
    "log": [
+    {
+     "v": "1.3.12",
+     "t": "- Korrektur: Update-Check und Installation scheiterten nach einigen Stunden Betrieb mit \"SSL - Memory allocation failed\" (zerstueckelter Speicher fuer die TLS-Verbindung zu GitHub); das Display zeigte dann ewig \"Wird vorbereitet ...\". Der Speicher fuer die Verbindungen wird jetzt reserviert, und Fehler erscheinen im Klartext.\n- Update: Ist der Speicher trotzdem zu knapp, startet das Geraet vor der Installation einmal geregelt neu und setzt das Update danach selbststaendig fort."
+    },
     {
      "v": "1.3.11",
      "t": "- Telegram: Die Meldung \"Neue Firmware\" enthaelt jetzt die Aenderungen seit der installierten Version (Platzhalter {aenderungen} in den Vorlagen).\n- Telegram: Unter der Meldung \"Neue Firmware\" steht die Taste \"Update jetzt durchfuehren\"; ein Tipp laedt und installiert das Update, nach dem Neustart meldet das Geraet das Ergebnis. Nur fuer Empfaenger mit Befehlen und erlaubte Benutzer."
@@ -51,20 +55,20 @@
     {
      "v": "1.3.1",
      "t": "- Software-Update: Vor der Installation zeigt das Geraet die Aenderungen aller neueren Versionen zusammen; installiert wird erst nach Bestaetigung. Das Update-Repository ist in den Einstellungen waehlbar (Vorgabe HansMueller4711/esp-anker-releases).\n- Standort (Breiten- und Laengengrad) in den allgemeinen Einstellungen, mit Ortssuche; der Kraftstoffpreis nutzt ihn. Zugangsdaten und Einstellungen bleiben bei Updates erhalten."
-    },
-    {
-     "v": "1.3.0",
-     "t": "- Touch-Geraet: **Statistik** (Reiter und Webseite): Einsparung in kWh und Euro fuer Gesamtanlage, PV-Anlage, Heimspeicher (mit Ladezyklen), Wallbox/eAuto (gegen Netzstrom und Kraftstoff), Waermepumpe und CO2. Messung der Anteile (Speicherladung aus PV, Wallbox/Waermepumpe aus PV bzw. Speicher) im Mischungsmodell, Preise je Tag in /stat.bin, Zeitraeume wie im Verlauf. /api/stats, MQTT stat/..., Befehle cmd/fuel_price, cmd/price_buy, cmd/price_sell.\n- Kraftstoffpreis: von Hand, aus ioBroker (MQTT) oder aus dem Internet (Tankerkoenig, API-Schluessel nur im Geraet, Koordinaten-Suchhilfe in den Einstellungen). Strompreise als Dezimalzahlen (ct/kWh).\n- Prioritaet: Statuszeile auf der Startseite u"
     }
    ]
   },
   "esp32c3": {
-   "version": "1.3.11",
-   "file": "anker-esp32c3-1.3.11.bin",
-   "size": 1542496,
-   "sha256": "06e0ff5c4e4e573849f3b9aa4466a0580b1303a1eae5d7850d46ed0368a63123",
-   "sig": "MEYCIQCWI0F8ykHKDZzqTZs7y6nJ130K+aKTzHzvM8E7URjoWQIhAK27K1XkPpe4R2fj4RXn9yrxIXbzFu9uiqoPfFgOxI2f",
+   "version": "1.3.12",
+   "file": "anker-esp32c3-1.3.12.bin",
+   "size": 1543024,
+   "sha256": "801de90065ab10a820a8ee7118797e41ff90fdd442c842046e8a4a2b2d10a882",
+   "sig": "MEYCIQCRFko6jIMmoSsWa0vfP53/a2GMCUJG9FY+xCArLocYEwIhAM52Jlo3HBkR/P56Jm1aloDKhd6wtpUdM2BsJjp103p+",
    "log": [
+    {
+     "v": "1.3.12",
+     "t": "- Korrektur: Update-Check und Installation scheiterten nach einigen Stunden Betrieb mit \"SSL - Memory allocation failed\" (zerstueckelter Speicher fuer die TLS-Verbindung zu GitHub); das Display zeigte dann ewig \"Wird vorbereitet ...\". Der Speicher fuer die Verbindungen wird jetzt reserviert, und Fehler erscheinen im Klartext.\n- Update: Ist der Speicher trotzdem zu knapp, startet das Geraet vor der Installation einmal geregelt neu und setzt das Update danach selbststaendig fort."
+    },
     {
      "v": "1.3.11",
      "t": "- Telegram: Die Meldung \"Neue Firmware\" enthaelt jetzt die Aenderungen seit der installierten Version (Platzhalter {aenderungen} in den Vorlagen).\n- Telegram: Unter der Meldung \"Neue Firmware\" steht die Taste \"Update jetzt durchfuehren\"; ein Tipp laedt und installiert das Update, nach dem Neustart meldet das Geraet das Ergebnis. Nur fuer Empfaenger mit Befehlen und erlaubte Benutzer."
@@ -108,10 +112,6 @@
     {
      "v": "1.3.1",
      "t": "- Software-Update: Vor der Installation zeigt das Geraet die Aenderungen aller neueren Versionen zusammen; installiert wird erst nach Bestaetigung. Das Update-Repository ist in den Einstellungen waehlbar (Vorgabe HansMueller4711/esp-anker-releases).\n- Standort (Breiten- und Laengengrad) in den allgemeinen Einstellungen, mit Ortssuche; der Kraftstoffpreis nutzt ihn. Zugangsdaten und Einstellungen bleiben bei Updates erhalten."
-    },
-    {
-     "v": "1.3.0",
-     "t": "- Touch-Geraet: **Statistik** (Reiter und Webseite): Einsparung in kWh und Euro fuer Gesamtanlage, PV-Anlage, Heimspeicher (mit Ladezyklen), Wallbox/eAuto (gegen Netzstrom und Kraftstoff), Waermepumpe und CO2. Messung der Anteile (Speicherladung aus PV, Wallbox/Waermepumpe aus PV bzw. Speicher) im Mischungsmodell, Preise je Tag in /stat.bin, Zeitraeume wie im Verlauf. /api/stats, MQTT stat/..., Befehle cmd/fuel_price, cmd/price_buy, cmd/price_sell.\n- Kraftstoffpreis: von Hand, aus ioBroker (MQTT) oder aus dem Internet (Tankerkoenig, API-Schluessel nur im Geraet, Koordinaten-Suchhilfe in den Einstellungen). Strompreise als Dezimalzahlen (ct/kWh).\n- Prioritaet: Statuszeile auf der Startseite u"
     }
    ]
   }
