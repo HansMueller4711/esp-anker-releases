@@ -2,12 +2,16 @@
  "v": 1,
  "channels": {
   "esp32s3": {
-   "version": "1.3.12",
-   "file": "anker-esp32s3-1.3.12.bin",
-   "size": 1848496,
-   "sha256": "06c8873f5e295336136066e1aa885835a5aa46d98a91ca3a083d7c7aa147a578",
-   "sig": "MEYCIQDRpdCGe5gFFhhz6Rd2dcKc0rjGKUlURSE6zwXu30Pe/wIhAO4jiMBYGrPr+eh+YwpHbyb3JEt2fmHjLGLSvmZuCu3+",
+   "version": "1.3.13",
+   "file": "anker-esp32s3-1.3.13.bin",
+   "size": 1872416,
+   "sha256": "c837d6d6c50cf47f5f3d99b70e9b34ef691cad5e89f0465d2e255fb6d9823aca",
+   "sig": "MEUCIQDKaduD5ARBAbztX4y9n5h9MgyCzoJuNouZKoQ1+82bKwIgXfTgZwo5UkW8fXDfmv69WW/HXnH+TSU3CnvW8yxTN1k=",
    "log": [
+    {
+     "v": "1.3.13",
+     "t": "- Neues Menue der Weboberflaeche mit fuenf Punkten: Status, Verlauf, Statistik, Regeln, Einstellungen. Neu ist die Seite \"Regeln\" (Prioritaet, aktive Vorgabe, manuell eingreifen, Ereignisprotokoll, Optimierung); WLAN, Software-Update, Telegram und Hilfe stehen unter Einstellungen. Alle bisherigen Adressen (/wlan, /update, /help, /tune) funktionieren weiter, Lesezeichen bleiben gueltig.\n- Aufgaben: Oben in der Weboberflaeche zeigt eine Leiste, was noch einzurichten ist (Zaehler, Anker, Preise, optionale Anbindungen, neue Funktionen wie der Kraftstoffvergleich). Aufgaben lassen sich erledigen oder ueberspringen und unter Einstellungen wieder oeffnen; was die Einstellungen schon enthalten, gilt"
+    },
     {
      "v": "1.3.12",
      "t": "- Korrektur: Update-Check und Installation scheiterten nach einigen Stunden Betrieb mit \"SSL - Memory allocation failed\" (zerstueckelter Speicher fuer die TLS-Verbindung zu GitHub); das Display zeigte dann ewig \"Wird vorbereitet ...\". Der Speicher fuer die Verbindungen wird jetzt reserviert, und Fehler erscheinen im Klartext.\n- Update: Ist der Speicher trotzdem zu knapp, startet das Geraet vor der Installation einmal geregelt neu und setzt das Update danach selbststaendig fort."
@@ -51,20 +55,20 @@
     {
      "v": "1.3.2",
      "t": "- Software-Update: Installation gibt der Leerlaufaufgabe Zeit, Diagnose-Spur im RTC-Speicher."
-    },
-    {
-     "v": "1.3.1",
-     "t": "- Software-Update: Vor der Installation zeigt das Geraet die Aenderungen aller neueren Versionen zusammen; installiert wird erst nach Bestaetigung. Das Update-Repository ist in den Einstellungen waehlbar (Vorgabe HansMueller4711/esp-anker-releases).\n- Standort (Breiten- und Laengengrad) in den allgemeinen Einstellungen, mit Ortssuche; der Kraftstoffpreis nutzt ihn. Zugangsdaten und Einstellungen bleiben bei Updates erhalten."
     }
    ]
   },
   "esp32c3": {
-   "version": "1.3.12",
-   "file": "anker-esp32c3-1.3.12.bin",
-   "size": 1543024,
-   "sha256": "801de90065ab10a820a8ee7118797e41ff90fdd442c842046e8a4a2b2d10a882",
-   "sig": "MEYCIQCRFko6jIMmoSsWa0vfP53/a2GMCUJG9FY+xCArLocYEwIhAM52Jlo3HBkR/P56Jm1aloDKhd6wtpUdM2BsJjp103p+",
+   "version": "1.3.13",
+   "file": "anker-esp32c3-1.3.13.bin",
+   "size": 1559664,
+   "sha256": "663decb3f53946c374575a08e61b9230dbbd0b19f1a7c07a6b63019c994b4459",
+   "sig": "MEUCIQCGcdQRIrSu1ZmYUmGNzanRYZAi1cml954t+B+byIw0ZgIgR+IjzF5alAxYH+9lfg/YLQyiVopZqr6pdth8Ne6CeF0=",
    "log": [
+    {
+     "v": "1.3.13",
+     "t": "- Neues Menue der Weboberflaeche mit fuenf Punkten: Status, Verlauf, Statistik, Regeln, Einstellungen. Neu ist die Seite \"Regeln\" (Prioritaet, aktive Vorgabe, manuell eingreifen, Ereignisprotokoll, Optimierung); WLAN, Software-Update, Telegram und Hilfe stehen unter Einstellungen. Alle bisherigen Adressen (/wlan, /update, /help, /tune) funktionieren weiter, Lesezeichen bleiben gueltig.\n- Aufgaben: Oben in der Weboberflaeche zeigt eine Leiste, was noch einzurichten ist (Zaehler, Anker, Preise, optionale Anbindungen, neue Funktionen wie der Kraftstoffvergleich). Aufgaben lassen sich erledigen oder ueberspringen und unter Einstellungen wieder oeffnen; was die Einstellungen schon enthalten, gilt"
+    },
     {
      "v": "1.3.12",
      "t": "- Korrektur: Update-Check und Installation scheiterten nach einigen Stunden Betrieb mit \"SSL - Memory allocation failed\" (zerstueckelter Speicher fuer die TLS-Verbindung zu GitHub); das Display zeigte dann ewig \"Wird vorbereitet ...\". Der Speicher fuer die Verbindungen wird jetzt reserviert, und Fehler erscheinen im Klartext.\n- Update: Ist der Speicher trotzdem zu knapp, startet das Geraet vor der Installation einmal geregelt neu und setzt das Update danach selbststaendig fort."
@@ -108,10 +112,6 @@
     {
      "v": "1.3.2",
      "t": "- Software-Update: Installation gibt der Leerlaufaufgabe Zeit, Diagnose-Spur im RTC-Speicher."
-    },
-    {
-     "v": "1.3.1",
-     "t": "- Software-Update: Vor der Installation zeigt das Geraet die Aenderungen aller neueren Versionen zusammen; installiert wird erst nach Bestaetigung. Das Update-Repository ist in den Einstellungen waehlbar (Vorgabe HansMueller4711/esp-anker-releases).\n- Standort (Breiten- und Laengengrad) in den allgemeinen Einstellungen, mit Ortssuche; der Kraftstoffpreis nutzt ihn. Zugangsdaten und Einstellungen bleiben bei Updates erhalten."
     }
    ]
   }
