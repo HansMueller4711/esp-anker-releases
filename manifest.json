@@ -2,12 +2,16 @@
  "v": 1,
  "channels": {
   "esp32s3": {
-   "version": "1.3.14",
-   "file": "anker-esp32s3-1.3.14.bin",
-   "size": 1872832,
-   "sha256": "ccfca91a209a9c8ca25c2eb72754c72768d20b4f248ea1fe693c92df2ab4a45a",
-   "sig": "MEQCIHS/YQljnb5Eilks/RyonIj069alsIuUBPuCFnZa0x+aAiBfsZ1D9FKzT0VxbndXrF5sVtRXafhWXogPQSMVMODAYQ==",
+   "version": "1.4.0",
+   "file": "anker-esp32s3-1.4.0.bin",
+   "size": 1928368,
+   "sha256": "e61d06c9bbe05ec4c2a1f9d407f2122cc2a654c474a86063fd5e8f4bf1fb6e90",
+   "sig": "MEUCIQDR0tr7tyiqMSs8mJ4C6DoCp55eR2+jEEYsUOdrdfG1wAIgAWQBHULWM8risPpMA1mwH1RZy9LtoQWzBna2bwrAIuA=",
    "log": [
+    {
+     "v": "1.4.0",
+     "t": "- Neu: Aufgabe \"Design und Farben waehlen\" in der Aufgabenliste (S3): erscheint als offene Aufgabe und gilt als erledigt, sobald ein Design gewaehlt wird.\n- Geaendert (ESP32-C3): Die eingebaute Hilfeseite (/help) und der Hilfe-Eintrag in den Einstellungen entfallen, das spart rund 35 KB Flash im knappen App-Slot. Eine Online-Hilfe auf GitHub ist geplant. Der S3 beh\u00e4lt die eingebaute Hilfe.\n- Neu: Sieben waehlbare Designs fuer Display und Weboberflaeche: Klassisch (wie bisher), Glas (iOS-Stil), Material (Android-Stil), Tron, Clean Weiss, Clean Schwarz und Kommando. Die Auswahl steht am Display unter System > Anzeige und in der Weboberflaeche unter Einstellungen > Geraet und Anzeige (\"Design u"
+    },
     {
      "v": "1.3.14",
      "t": "- Korrektur: \"Auf Updates pruefen\" scheiterte gelegentlich mit \"Verbindung (connection refused; SSL - Memory allocation failed)\". Die Speicherreserve fuer die verschluesselte Verbindung wird jetzt nach jeder Verbindung (auch Telegram) laufend wieder aufgefuellt; die Pruefung wartet darauf und versucht es bei knappem Speicher bis zu dreimal von selbst. Die Fehlermeldung nennt jetzt Reserve und freien Block."
@@ -51,20 +55,20 @@
     {
      "v": "1.3.4",
      "t": "- Korrektur: Das Pop-up \"Neue Version\" auf dem Display reagiert jetzt auf Tipps (Aenderungen, Spaeter, Installieren).\n- Statistik: Tage ohne Einspeisemessung (importierte Erzeugung) zaehlten bisher komplett als Eigenverbrauch und verfaelschten \"Netzbezug vermieden\", Ersparnis, Autarkie und Eigenverbrauch stark. Sie zaehlen jetzt nur noch in Erzeugung und CO2.\n- Statistik: Startwerte (bisherige Summen) mit Rechenfeld in den Einstellungen; sie werden im Zeitraum Gesamt aufaddiert.\n- Anzeige: \"Heimspeicher\" heisst ueberall \"Hausakku\" (kurz \"Akku\"); im Fluss keine Ueberdeckung mehr. Titel der gruenen Kopfzeile einstellbar (Display und Web).\n- System > Geraet: Auf Updates pruefen, Ausschalten neb"
-    },
-    {
-     "v": "1.3.3",
-     "t": "- Update-Hinweis: Steht eine neue Version bereit, erscheint auf dem Display ein Fenster (Aenderungen ansehen, installieren oder spaeter) und beim Oeffnen der Weboberflaeche ein Hinweis mit \"Update starten\" (zeigt zuerst das Aenderungsprotokoll) und \"Spaeter\". \"Spaeter\" merkt sich die Version: eine Erinnerung gibt es erst bei der naechsten neuen Version.\n- Telegram-Bot (nur Touch-Geraet) fuer Anlagen ohne ioBroker: Tagesstatus, Fehlerinfo, Vergleichsmeldung, Abfragen per Chat, erlaubte Benutzer."
     }
    ]
   },
   "esp32c3": {
-   "version": "1.3.14",
-   "file": "anker-esp32c3-1.3.14.bin",
-   "size": 1559952,
-   "sha256": "1b035a13f07eceb5deb7396b832452678fcfc55be238abca144da842417d046b",
-   "sig": "MEUCIBhZ440B6u50o7wR3DwBSViAN4Neg2N7Mkn2LxNBBpeTAiEAoyRfBjGUsV3ov/rsb7hRZMyaegmeJMFb5OxsMaBP4C4=",
+   "version": "1.4.0",
+   "file": "anker-esp32c3-1.4.0.bin",
+   "size": 1526432,
+   "sha256": "4e949b2ef90fb2ad79279fd65b9c8637270cc9b62b8fbd70e7b511d94055a1c6",
+   "sig": "MEUCIQCvD3hCBuMWXmgearG/o6Ibw36YkEjtWN883RXLSvdnwQIgVkPwn0xdChzqug6oVUufVzylp+N6JaYTI44eOqbep+g=",
    "log": [
+    {
+     "v": "1.4.0",
+     "t": "- Neu: Aufgabe \"Design und Farben waehlen\" in der Aufgabenliste (S3): erscheint als offene Aufgabe und gilt als erledigt, sobald ein Design gewaehlt wird.\n- Geaendert (ESP32-C3): Die eingebaute Hilfeseite (/help) und der Hilfe-Eintrag in den Einstellungen entfallen, das spart rund 35 KB Flash im knappen App-Slot. Eine Online-Hilfe auf GitHub ist geplant. Der S3 beh\u00e4lt die eingebaute Hilfe.\n- Neu: Sieben waehlbare Designs fuer Display und Weboberflaeche: Klassisch (wie bisher), Glas (iOS-Stil), Material (Android-Stil), Tron, Clean Weiss, Clean Schwarz und Kommando. Die Auswahl steht am Display unter System > Anzeige und in der Weboberflaeche unter Einstellungen > Geraet und Anzeige (\"Design u"
+    },
     {
      "v": "1.3.14",
      "t": "- Korrektur: \"Auf Updates pruefen\" scheiterte gelegentlich mit \"Verbindung (connection refused; SSL - Memory allocation failed)\". Die Speicherreserve fuer die verschluesselte Verbindung wird jetzt nach jeder Verbindung (auch Telegram) laufend wieder aufgefuellt; die Pruefung wartet darauf und versucht es bei knappem Speicher bis zu dreimal von selbst. Die Fehlermeldung nennt jetzt Reserve und freien Block."
@@ -108,10 +112,6 @@
     {
      "v": "1.3.4",
      "t": "- Korrektur: Das Pop-up \"Neue Version\" auf dem Display reagiert jetzt auf Tipps (Aenderungen, Spaeter, Installieren).\n- Statistik: Tage ohne Einspeisemessung (importierte Erzeugung) zaehlten bisher komplett als Eigenverbrauch und verfaelschten \"Netzbezug vermieden\", Ersparnis, Autarkie und Eigenverbrauch stark. Sie zaehlen jetzt nur noch in Erzeugung und CO2.\n- Statistik: Startwerte (bisherige Summen) mit Rechenfeld in den Einstellungen; sie werden im Zeitraum Gesamt aufaddiert.\n- Anzeige: \"Heimspeicher\" heisst ueberall \"Hausakku\" (kurz \"Akku\"); im Fluss keine Ueberdeckung mehr. Titel der gruenen Kopfzeile einstellbar (Display und Web).\n- System > Geraet: Auf Updates pruefen, Ausschalten neb"
-    },
-    {
-     "v": "1.3.3",
-     "t": "- Update-Hinweis: Steht eine neue Version bereit, erscheint auf dem Display ein Fenster (Aenderungen ansehen, installieren oder spaeter) und beim Oeffnen der Weboberflaeche ein Hinweis mit \"Update starten\" (zeigt zuerst das Aenderungsprotokoll) und \"Spaeter\". \"Spaeter\" merkt sich die Version: eine Erinnerung gibt es erst bei der naechsten neuen Version.\n- Telegram-Bot (nur Touch-Geraet) fuer Anlagen ohne ioBroker: Tagesstatus, Fehlerinfo, Vergleichsmeldung, Abfragen per Chat, erlaubte Benutzer."
     }
    ]
   }
