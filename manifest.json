@@ -2,12 +2,20 @@
  "v": 1,
  "channels": {
   "esp32s3": {
-   "version": "1.4.1",
-   "file": "anker-esp32s3-1.4.1.bin",
-   "size": 1928800,
-   "sha256": "dff73d0b523cdd65464095c29e31ab1368bc2aa81069623569b6d47222adca49",
-   "sig": "MEQCIHqTG6m9rO8QhRfS52lI3dn2ljWoNybPBRxIqu3ycVY8AiAxMn3rJu1cHhHaHMHb5AYoU3/PaC1xWqLnm1N3MyFxlA==",
+   "version": "1.4.3",
+   "file": "anker-esp32s3-1.4.3.bin",
+   "size": 1933008,
+   "sha256": "fec8da00d9e382a43c3b46909e9d13e35eac491e8c5f16c4e4bbb46f459d7ab9",
+   "sig": "MEUCIQDEp+Y3e0UktUe8ETLat52OhWKwe1+srvYgTiKSczHR7gIgCPBj8QTP09j0oVDoC9fb0MOG6pcb084YZPSlVMjU/fs=",
    "log": [
+    {
+     "v": "1.4.3",
+     "t": "- Behoben: Absturz direkt nach dem Einschalten (Task arduino_events): Der WLAN-Ereignis-Task las die Handler-Liste, waehrend sie beim Start noch gefuellt wurde. Der Handler wird jetzt vor dem WLAN-Start eingetragen.\n- Behoben: Ein Firmware-Upload ueber /update konnte das Geraet zum Absturz bringen (Web-Task und Haupttask griffen gleichzeitig auf MQTT zu). Der Haupttask haelt jetzt an, sobald ein Upload beginnt; bricht er ab, startet das Geraet nach 30 s neu.\n- Neu: Die letzten drei verschiedenen Absturz-Zusammenfassungen bleiben dauerhaft gespeichert (sys.crash_hist in /api/status)."
+    },
+    {
+     "v": "1.4.2",
+     "t": "- Behoben: Das Geraet startete alle paar Stunden mit \"Exception/Panic\" neu (Telegram: \"Neustart nach Absturz\"). Ein Fehler der Arduino-Bibliothek schloss nach jeder TLS-Verbindung (Telegram, Update-Pruefung, Spritpreis) den Datei-Deskriptor 0 und damit eine offene Datei eines anderen Tasks. Die TLS-Verbindungen setzen den Socket jetzt selbst zurueck.\n- Neu: Nach einem Absturz fasst das Geraet den Core-Dump zusammen (Task, Programmzaehler, Aufrufkette) und zeigt ihn unter Status (sys.crash) und in der Telegram-Fehlerinfo. GET /api/coredump (Admin) liefert den Dump fuer die Auswertung am PC (nur S3)."
+    },
     {
      "v": "1.4.1",
      "t": "- Behoben: Auf der Telegram-Seite wurde die Tabelle \"Was geht wohin\" auf dem Handy abgeschnitten. Auf schmalen Bildschirmen ist jede Nachrichtenart jetzt eine Karte mit den Empfaengern untereinander.\n- Behoben: Anker und Hausanschluss-Zaehler lassen sich getrennt einrichten. Die Anker-Adresse konnte bisher nicht gespeichert werden, solange die Zaehler-Adresse fehlte.\n- Behoben (S3): Telegram-Befehle (z. B. /tag), Update-Pruefung und Spritpreis fielen nach Minuten bis Stunden aus (\"SSL - Memory allocation failed\"), weil der interne Speicher zerstueckelt war. Die TLS-Puffer liegen jetzt im PSRAM; der groesste freie interne Block bleibt bei rund 60 KB.\n- Entfernt: Die Unterstuetzung fuer den ES"
@@ -47,24 +55,24 @@
     {
      "v": "1.3.7",
      "t": "- Korrektur: Der Dialog \"Wirklich ausschalten?\" schloss sich sofort wieder (Zeitvergleich ohne Vorzeichen); ein Tipp auf \"Ausschalten\" im Dialog genuegt jetzt."
-    },
-    {
-     "v": "1.3.6",
-     "t": "- Display: Verlauf > Kurve zeigt die Tageskurve (heute/gestern, Tippen oder Ziehen waehlt die Minute)."
-    },
-    {
-     "v": "1.3.5",
-     "t": "- Tageskurve: Minutenwerte (Erzeugung, Haus, Netz, Akku, SOC, Waermepumpe, eAuto) fuer heute und gestern, im Reiter Verlauf > Tageskurve; bis zu 8 Zusatzlinien aus MQTT (Einstellungen). Speicherung im Arbeitsspeicher, auf den Flash nur gebuendelt (alle 15 min). /api/day, /api/day/png.\n- Telegram: Befehl /tag schickt das Tagesdiagramm als Bild, auf Wunsch zusammen mit dem Tagesstatus.\n- Geplanter Neustart (Update, Einstellungen speichern, Neustart-Taste, Ausschalten, WLAN-Verlust): Tageskurve und Kurzzeitverlauf der Detailansichten werden gesichert und nach dem Start wieder geladen; die Minuten dazwischen fehlen als Luecke.\n- Details der Kacheln in der Weboberflaeche (Fehler im Verlauf-JSON b"
     }
    ]
   },
   "esp32c3": {
-   "version": "1.4.1",
-   "file": "anker-esp32c3-1.4.1.bin",
-   "size": 1526336,
-   "sha256": "abed6c0797969dd0d5e0acc28f654393e080be19377eceb6819610287eae3b6d",
-   "sig": "MEYCIQCCiD2GJ5MWb+BciSnaXJos6i4p+545fQ1jAWt1UkMvyAIhANyZ67nEKEjK0t1BFy6+fGkD7YKoiSoy2+arCpVXTOwe",
+   "version": "1.4.3",
+   "file": "anker-esp32c3-1.4.3.bin",
+   "size": 1530240,
+   "sha256": "5cb53c4701a7ec08c41520a4ef893d73b20a637c5d9f8df1e8adbb27a6a40275",
+   "sig": "MEUCIQCGbhoFPNp8UtqZ5GUIas40cL1n2YmsbWZ39BtxQSm1igIgJvxtFtiGluQVd6XXKZop2QK3p2WT+IpO526Sk8TiXqE=",
    "log": [
+    {
+     "v": "1.4.3",
+     "t": "- Behoben: Absturz direkt nach dem Einschalten (Task arduino_events): Der WLAN-Ereignis-Task las die Handler-Liste, waehrend sie beim Start noch gefuellt wurde. Der Handler wird jetzt vor dem WLAN-Start eingetragen.\n- Behoben: Ein Firmware-Upload ueber /update konnte das Geraet zum Absturz bringen (Web-Task und Haupttask griffen gleichzeitig auf MQTT zu). Der Haupttask haelt jetzt an, sobald ein Upload beginnt; bricht er ab, startet das Geraet nach 30 s neu.\n- Neu: Die letzten drei verschiedenen Absturz-Zusammenfassungen bleiben dauerhaft gespeichert (sys.crash_hist in /api/status)."
+    },
+    {
+     "v": "1.4.2",
+     "t": "- Behoben: Das Geraet startete alle paar Stunden mit \"Exception/Panic\" neu (Telegram: \"Neustart nach Absturz\"). Ein Fehler der Arduino-Bibliothek schloss nach jeder TLS-Verbindung (Telegram, Update-Pruefung, Spritpreis) den Datei-Deskriptor 0 und damit eine offene Datei eines anderen Tasks. Die TLS-Verbindungen setzen den Socket jetzt selbst zurueck.\n- Neu: Nach einem Absturz fasst das Geraet den Core-Dump zusammen (Task, Programmzaehler, Aufrufkette) und zeigt ihn unter Status (sys.crash) und in der Telegram-Fehlerinfo. GET /api/coredump (Admin) liefert den Dump fuer die Auswertung am PC (nur S3)."
+    },
     {
      "v": "1.4.1",
      "t": "- Behoben: Auf der Telegram-Seite wurde die Tabelle \"Was geht wohin\" auf dem Handy abgeschnitten. Auf schmalen Bildschirmen ist jede Nachrichtenart jetzt eine Karte mit den Empfaengern untereinander.\n- Behoben: Anker und Hausanschluss-Zaehler lassen sich getrennt einrichten. Die Anker-Adresse konnte bisher nicht gespeichert werden, solange die Zaehler-Adresse fehlte.\n- Behoben (S3): Telegram-Befehle (z. B. /tag), Update-Pruefung und Spritpreis fielen nach Minuten bis Stunden aus (\"SSL - Memory allocation failed\"), weil der interne Speicher zerstueckelt war. Die TLS-Puffer liegen jetzt im PSRAM; der groesste freie interne Block bleibt bei rund 60 KB.\n- Entfernt: Die Unterstuetzung fuer den ES"
@@ -104,14 +112,6 @@
     {
      "v": "1.3.7",
      "t": "- Korrektur: Der Dialog \"Wirklich ausschalten?\" schloss sich sofort wieder (Zeitvergleich ohne Vorzeichen); ein Tipp auf \"Ausschalten\" im Dialog genuegt jetzt."
-    },
-    {
-     "v": "1.3.6",
-     "t": "- Display: Verlauf > Kurve zeigt die Tageskurve (heute/gestern, Tippen oder Ziehen waehlt die Minute)."
-    },
-    {
-     "v": "1.3.5",
-     "t": "- Tageskurve: Minutenwerte (Erzeugung, Haus, Netz, Akku, SOC, Waermepumpe, eAuto) fuer heute und gestern, im Reiter Verlauf > Tageskurve; bis zu 8 Zusatzlinien aus MQTT (Einstellungen). Speicherung im Arbeitsspeicher, auf den Flash nur gebuendelt (alle 15 min). /api/day, /api/day/png.\n- Telegram: Befehl /tag schickt das Tagesdiagramm als Bild, auf Wunsch zusammen mit dem Tagesstatus.\n- Geplanter Neustart (Update, Einstellungen speichern, Neustart-Taste, Ausschalten, WLAN-Verlust): Tageskurve und Kurzzeitverlauf der Detailansichten werden gesichert und nach dem Start wieder geladen; die Minuten dazwischen fehlen als Luecke.\n- Details der Kacheln in der Weboberflaeche (Fehler im Verlauf-JSON b"
     }
    ]
   }
