@@ -2,12 +2,24 @@
  "v": 1,
  "channels": {
   "esp32s3": {
-   "version": "1.4.3",
-   "file": "anker-esp32s3-1.4.3.bin",
-   "size": 1933008,
-   "sha256": "fec8da00d9e382a43c3b46909e9d13e35eac491e8c5f16c4e4bbb46f459d7ab9",
-   "sig": "MEUCIQDEp+Y3e0UktUe8ETLat52OhWKwe1+srvYgTiKSczHR7gIgCPBj8QTP09j0oVDoC9fb0MOG6pcb084YZPSlVMjU/fs=",
+   "version": "1.4.6",
+   "file": "anker-esp32s3-1.4.6.bin",
+   "size": 1926896,
+   "sha256": "126a1e2a2a94965e9819ffe4ff4594ce7227fffb8b006ce542aa5ccd1dbb5e0e",
+   "sig": "MEUCICgtjp8w5HbmgqH43XEEknctAOki9jeoAgYhNhEa9iDyAiEA8Gnvb3cHULq4ePqQ4lFWqk2wR85w+o3eiZTeOqRlwco=",
    "log": [
+    {
+     "v": "1.4.6",
+     "t": "- Telegram: Dauerverbindung wieder an (kein TLS-Handshake alle 11 s mehr, Puffer im PSRAM); ohne Befehle Abfragepause 25 s statt 10 s.\n- Neu: Handshake-Dauer in /api/status (tls_hs_last, tls_hs_max).\n- Statistik: Regelguete-Stunden zaehlen auch bei Zaehlertakt 300/400 ms (Sekunden aus Millisekunden aufsummiert)."
+    },
+    {
+     "v": "1.4.5",
+     "t": "- Anzeige/Regelung: TLS-Aufgaben wieder ohne Kernbindung (1.4.4 ruckelte, MQTT-Abbrueche).\n- Sicherheit: haengender Firmware-Upload wird nach 60 s abgebrochen.\n- Statistik: Wiederanlauf nach Stromausfall beim Schreiben, Konto vor Neustart gesichert.\n- Behoben: Kostal ungueltige Werte, abgelehnte Befehle ohne Lebenszeichen, kleine Speicher-/JSON-Fehler."
+    },
+    {
+     "v": "1.4.4",
+     "t": "- Stabiler: grosse Puffer im PSRAM (S3, rund 60 KB intern frei), weniger Stapel im Web-Server, keine Speicherzerstueckelung durch MQTT/JSON.\n- Regelung ruhiger: Tasmota-Zaehlerstaende ohne Zweitabfrage, TLS-Aufgaben auf Kern 0.\n- Autarkie neu: Netzstrom im Akku zaehlt beim Entladen als Netzbezug; alle Anzeigen gleich, Werte aendern sich. Anker-PV ueberall als Erzeugung.\n- Behoben: Kostal Plenticore Wortfolge, \"Haus\" alter Tage, Regelguete bei Takt ueber 1,5 s, Wirkungsgrad Akku im Web, Befehle nur echte Zahlen.\n- Sicherheit: DNS-Rebinding abgewehrt, Update-Seite mit Digest, Telegram-Einstellungen nur mit Anmeldung.\n- Entfernt: OLED/ESP8266-Reste, /ext; Hilfe aktualisiert, Dezimalkomma."
+    },
     {
      "v": "1.4.3",
      "t": "- Behoben: Absturz direkt nach dem Einschalten (Task arduino_events): Der WLAN-Ereignis-Task las die Handler-Liste, waehrend sie beim Start noch gefuellt wurde. Der Handler wird jetzt vor dem WLAN-Start eingetragen.\n- Behoben: Ein Firmware-Upload ueber /update konnte das Geraet zum Absturz bringen (Web-Task und Haupttask griffen gleichzeitig auf MQTT zu). Der Haupttask haelt jetzt an, sobald ein Upload beginnt; bricht er ab, startet das Geraet nach 30 s neu.\n- Neu: Die letzten drei verschiedenen Absturz-Zusammenfassungen bleiben dauerhaft gespeichert (sys.crash_hist in /api/status)."
@@ -43,28 +55,28 @@
     {
      "v": "1.3.10",
      "t": "- Korrektur: Der Kraftstoffpreis aus dem Internet (Tankerkoenig) wurde nie geholt (\"Abruf laeuft ...\" ohne Ende). Die Antwort wird jetzt richtig gelesen, Fehlertexte von Tankerkoenig erscheinen im Klartext.\n- Korrektur: Nach dem Abruf blieb die gemeinsame Internet-Sperre belegt; Telegram-Antworten und der Update-Check kamen danach nicht mehr durch.\n- Telegram: kurze Pause zwischen den Abfragen, damit andere Verbindungen drankommen."
-    },
-    {
-     "v": "1.3.9",
-     "t": "- Display: System > Anzeige hat die Taste \"Invertieren\" (Farben des Panels umkehren); noetig fuer das 3,5-Zoll-Display, das 4-Zoll-Display braucht sie nicht. Die Tasten \"Display drehen\" und \"Touch kalibrieren\" heissen dort jetzt \"Drehen\" und \"Kalibrieren\"."
-    },
-    {
-     "v": "1.3.8",
-     "t": "- Telegram: Antworten auf Befehle (/status, /tag usw.) gingen bei knappem Speicher verloren; sie werden jetzt bei Fehlschlag wiederholt, die Speicherpruefung ist weniger streng.\n- Weboberflaeche: Im Energiefluss steht auf dem Handy \"Akku\" statt \"Hausakku\", die Leistung wird nicht mehr ueberlagert.\n- ESP32-C3: Einstellungen > Ger\u00e4t ausschalten (Regelung anhalten, Daten sichern, Netz trennen) gibt es jetzt auch ohne Display."
-    },
-    {
-     "v": "1.3.7",
-     "t": "- Korrektur: Der Dialog \"Wirklich ausschalten?\" schloss sich sofort wieder (Zeitvergleich ohne Vorzeichen); ein Tipp auf \"Ausschalten\" im Dialog genuegt jetzt."
     }
    ]
   },
   "esp32c3": {
-   "version": "1.4.3",
-   "file": "anker-esp32c3-1.4.3.bin",
-   "size": 1530240,
-   "sha256": "5cb53c4701a7ec08c41520a4ef893d73b20a637c5d9f8df1e8adbb27a6a40275",
-   "sig": "MEUCIQCGbhoFPNp8UtqZ5GUIas40cL1n2YmsbWZ39BtxQSm1igIgJvxtFtiGluQVd6XXKZop2QK3p2WT+IpO526Sk8TiXqE=",
+   "version": "1.4.6",
+   "file": "anker-esp32c3-1.4.6.bin",
+   "size": 1524496,
+   "sha256": "e9553e56b37247aaf732147eecee8232badde449da22986059a13e1f1fa78785",
+   "sig": "MEYCIQCkl/0jidi/3l/5zu/hIsw8gKNjQMYpAt/B+EYekbjMbgIhAIGB+ddUewQX3c3TsPXonJdbH28ejQHcYlotXqs4UYlO",
    "log": [
+    {
+     "v": "1.4.6",
+     "t": "- Telegram: Dauerverbindung wieder an (kein TLS-Handshake alle 11 s mehr, Puffer im PSRAM); ohne Befehle Abfragepause 25 s statt 10 s.\n- Neu: Handshake-Dauer in /api/status (tls_hs_last, tls_hs_max).\n- Statistik: Regelguete-Stunden zaehlen auch bei Zaehlertakt 300/400 ms (Sekunden aus Millisekunden aufsummiert)."
+    },
+    {
+     "v": "1.4.5",
+     "t": "- Anzeige/Regelung: TLS-Aufgaben wieder ohne Kernbindung (1.4.4 ruckelte, MQTT-Abbrueche).\n- Sicherheit: haengender Firmware-Upload wird nach 60 s abgebrochen.\n- Statistik: Wiederanlauf nach Stromausfall beim Schreiben, Konto vor Neustart gesichert.\n- Behoben: Kostal ungueltige Werte, abgelehnte Befehle ohne Lebenszeichen, kleine Speicher-/JSON-Fehler."
+    },
+    {
+     "v": "1.4.4",
+     "t": "- Stabiler: grosse Puffer im PSRAM (S3, rund 60 KB intern frei), weniger Stapel im Web-Server, keine Speicherzerstueckelung durch MQTT/JSON.\n- Regelung ruhiger: Tasmota-Zaehlerstaende ohne Zweitabfrage, TLS-Aufgaben auf Kern 0.\n- Autarkie neu: Netzstrom im Akku zaehlt beim Entladen als Netzbezug; alle Anzeigen gleich, Werte aendern sich. Anker-PV ueberall als Erzeugung.\n- Behoben: Kostal Plenticore Wortfolge, \"Haus\" alter Tage, Regelguete bei Takt ueber 1,5 s, Wirkungsgrad Akku im Web, Befehle nur echte Zahlen.\n- Sicherheit: DNS-Rebinding abgewehrt, Update-Seite mit Digest, Telegram-Einstellungen nur mit Anmeldung.\n- Entfernt: OLED/ESP8266-Reste, /ext; Hilfe aktualisiert, Dezimalkomma."
+    },
     {
      "v": "1.4.3",
      "t": "- Behoben: Absturz direkt nach dem Einschalten (Task arduino_events): Der WLAN-Ereignis-Task las die Handler-Liste, waehrend sie beim Start noch gefuellt wurde. Der Handler wird jetzt vor dem WLAN-Start eingetragen.\n- Behoben: Ein Firmware-Upload ueber /update konnte das Geraet zum Absturz bringen (Web-Task und Haupttask griffen gleichzeitig auf MQTT zu). Der Haupttask haelt jetzt an, sobald ein Upload beginnt; bricht er ab, startet das Geraet nach 30 s neu.\n- Neu: Die letzten drei verschiedenen Absturz-Zusammenfassungen bleiben dauerhaft gespeichert (sys.crash_hist in /api/status)."
@@ -100,18 +112,6 @@
     {
      "v": "1.3.10",
      "t": "- Korrektur: Der Kraftstoffpreis aus dem Internet (Tankerkoenig) wurde nie geholt (\"Abruf laeuft ...\" ohne Ende). Die Antwort wird jetzt richtig gelesen, Fehlertexte von Tankerkoenig erscheinen im Klartext.\n- Korrektur: Nach dem Abruf blieb die gemeinsame Internet-Sperre belegt; Telegram-Antworten und der Update-Check kamen danach nicht mehr durch.\n- Telegram: kurze Pause zwischen den Abfragen, damit andere Verbindungen drankommen."
-    },
-    {
-     "v": "1.3.9",
-     "t": "- Display: System > Anzeige hat die Taste \"Invertieren\" (Farben des Panels umkehren); noetig fuer das 3,5-Zoll-Display, das 4-Zoll-Display braucht sie nicht. Die Tasten \"Display drehen\" und \"Touch kalibrieren\" heissen dort jetzt \"Drehen\" und \"Kalibrieren\"."
-    },
-    {
-     "v": "1.3.8",
-     "t": "- Telegram: Antworten auf Befehle (/status, /tag usw.) gingen bei knappem Speicher verloren; sie werden jetzt bei Fehlschlag wiederholt, die Speicherpruefung ist weniger streng.\n- Weboberflaeche: Im Energiefluss steht auf dem Handy \"Akku\" statt \"Hausakku\", die Leistung wird nicht mehr ueberlagert.\n- ESP32-C3: Einstellungen > Ger\u00e4t ausschalten (Regelung anhalten, Daten sichern, Netz trennen) gibt es jetzt auch ohne Display."
-    },
-    {
-     "v": "1.3.7",
-     "t": "- Korrektur: Der Dialog \"Wirklich ausschalten?\" schloss sich sofort wieder (Zeitvergleich ohne Vorzeichen); ein Tipp auf \"Ausschalten\" im Dialog genuegt jetzt."
     }
    ]
   }
