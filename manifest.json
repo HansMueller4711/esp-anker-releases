@@ -2,12 +2,20 @@
  "v": 1,
  "channels": {
   "esp32s3": {
-   "version": "1.4.6",
-   "file": "anker-esp32s3-1.4.6.bin",
-   "size": 1926896,
-   "sha256": "126a1e2a2a94965e9819ffe4ff4594ce7227fffb8b006ce542aa5ccd1dbb5e0e",
-   "sig": "MEUCICgtjp8w5HbmgqH43XEEknctAOki9jeoAgYhNhEa9iDyAiEA8Gnvb3cHULq4ePqQ4lFWqk2wR85w+o3eiZTeOqRlwco=",
+   "version": "1.4.8",
+   "file": "anker-esp32s3-1.4.8.bin",
+   "size": 1931120,
+   "sha256": "51c595aa1b7b2affc8ae8c31c062d53f8795fadc3f095f4095143989c4fa6dda",
+   "sig": "MEUCIGAmdKkhE2V/+duYl2aQEs3KJHVHwonbzDd2nIqZOVyrAiEAl++0KpjmYpfzD8dGdX0o4yA4R6zcO150luIsjHI+Sjc=",
    "log": [
+    {
+     "v": "1.4.8",
+     "t": "- Display: Fluss-Seite zeichnet Karten, Texte und Schlaeuche nur noch bei geaenderten Daten neu (zweiter Bildspeicher im PSRAM) und hasht nur beruehrte Baender; weniger Last auf Kern 0, Anzeige unveraendert.\n- Neu: ui_static_rebuilds in /api/status."
+    },
+    {
+     "v": "1.4.7",
+     "t": "- Display: Fluss-Seite sendet nur noch die geaenderten Bildbereiche (Teilbild) statt jedes Mal das Vollbild; soll Kern 0 entlasten, Animation unveraendert, Auffrischung weiter alle 3 s.\n- Neu: ui_draw_us, ui_push_us, ui_push_bands in /api/status."
+    },
     {
      "v": "1.4.6",
      "t": "- Telegram: Dauerverbindung wieder an (kein TLS-Handshake alle 11 s mehr, Puffer im PSRAM); ohne Befehle Abfragepause 25 s statt 10 s.\n- Neu: Handshake-Dauer in /api/status (tls_hs_last, tls_hs_max).\n- Statistik: Regelguete-Stunden zaehlen auch bei Zaehlertakt 300/400 ms (Sekunden aus Millisekunden aufsummiert)."
@@ -47,24 +55,24 @@
     {
      "v": "1.3.12",
      "t": "- Korrektur: Update-Check und Installation scheiterten nach einigen Stunden Betrieb mit \"SSL - Memory allocation failed\" (zerstueckelter Speicher fuer die TLS-Verbindung zu GitHub); das Display zeigte dann ewig \"Wird vorbereitet ...\". Der Speicher fuer die Verbindungen wird jetzt reserviert, und Fehler erscheinen im Klartext.\n- Update: Ist der Speicher trotzdem zu knapp, startet das Geraet vor der Installation einmal geregelt neu und setzt das Update danach selbststaendig fort."
-    },
-    {
-     "v": "1.3.11",
-     "t": "- Telegram: Die Meldung \"Neue Firmware\" enthaelt jetzt die Aenderungen seit der installierten Version (Platzhalter {aenderungen} in den Vorlagen).\n- Telegram: Unter der Meldung \"Neue Firmware\" steht die Taste \"Update jetzt durchfuehren\"; ein Tipp laedt und installiert das Update, nach dem Neustart meldet das Geraet das Ergebnis. Nur fuer Empfaenger mit Befehlen und erlaubte Benutzer."
-    },
-    {
-     "v": "1.3.10",
-     "t": "- Korrektur: Der Kraftstoffpreis aus dem Internet (Tankerkoenig) wurde nie geholt (\"Abruf laeuft ...\" ohne Ende). Die Antwort wird jetzt richtig gelesen, Fehlertexte von Tankerkoenig erscheinen im Klartext.\n- Korrektur: Nach dem Abruf blieb die gemeinsame Internet-Sperre belegt; Telegram-Antworten und der Update-Check kamen danach nicht mehr durch.\n- Telegram: kurze Pause zwischen den Abfragen, damit andere Verbindungen drankommen."
     }
    ]
   },
   "esp32c3": {
-   "version": "1.4.6",
-   "file": "anker-esp32c3-1.4.6.bin",
+   "version": "1.4.8",
+   "file": "anker-esp32c3-1.4.8.bin",
    "size": 1524496,
-   "sha256": "e9553e56b37247aaf732147eecee8232badde449da22986059a13e1f1fa78785",
-   "sig": "MEYCIQCkl/0jidi/3l/5zu/hIsw8gKNjQMYpAt/B+EYekbjMbgIhAIGB+ddUewQX3c3TsPXonJdbH28ejQHcYlotXqs4UYlO",
+   "sha256": "f5388566e00b04ca88be29c02b16c6b81fe2ec0fc125506729241403d056de9b",
+   "sig": "MEQCIAySov320wux9ek52yW8lUKdi3pXDx9r65c/5mchIrM+AiBsL6j/hDsbokjfm3GiU4zbtcXMP976m/Hkvl2xPm2aUQ==",
    "log": [
+    {
+     "v": "1.4.8",
+     "t": "- Display: Fluss-Seite zeichnet Karten, Texte und Schlaeuche nur noch bei geaenderten Daten neu (zweiter Bildspeicher im PSRAM) und hasht nur beruehrte Baender; weniger Last auf Kern 0, Anzeige unveraendert.\n- Neu: ui_static_rebuilds in /api/status."
+    },
+    {
+     "v": "1.4.7",
+     "t": "- Display: Fluss-Seite sendet nur noch die geaenderten Bildbereiche (Teilbild) statt jedes Mal das Vollbild; soll Kern 0 entlasten, Animation unveraendert, Auffrischung weiter alle 3 s.\n- Neu: ui_draw_us, ui_push_us, ui_push_bands in /api/status."
+    },
     {
      "v": "1.4.6",
      "t": "- Telegram: Dauerverbindung wieder an (kein TLS-Handshake alle 11 s mehr, Puffer im PSRAM); ohne Befehle Abfragepause 25 s statt 10 s.\n- Neu: Handshake-Dauer in /api/status (tls_hs_last, tls_hs_max).\n- Statistik: Regelguete-Stunden zaehlen auch bei Zaehlertakt 300/400 ms (Sekunden aus Millisekunden aufsummiert)."
@@ -104,14 +112,6 @@
     {
      "v": "1.3.12",
      "t": "- Korrektur: Update-Check und Installation scheiterten nach einigen Stunden Betrieb mit \"SSL - Memory allocation failed\" (zerstueckelter Speicher fuer die TLS-Verbindung zu GitHub); das Display zeigte dann ewig \"Wird vorbereitet ...\". Der Speicher fuer die Verbindungen wird jetzt reserviert, und Fehler erscheinen im Klartext.\n- Update: Ist der Speicher trotzdem zu knapp, startet das Geraet vor der Installation einmal geregelt neu und setzt das Update danach selbststaendig fort."
-    },
-    {
-     "v": "1.3.11",
-     "t": "- Telegram: Die Meldung \"Neue Firmware\" enthaelt jetzt die Aenderungen seit der installierten Version (Platzhalter {aenderungen} in den Vorlagen).\n- Telegram: Unter der Meldung \"Neue Firmware\" steht die Taste \"Update jetzt durchfuehren\"; ein Tipp laedt und installiert das Update, nach dem Neustart meldet das Geraet das Ergebnis. Nur fuer Empfaenger mit Befehlen und erlaubte Benutzer."
-    },
-    {
-     "v": "1.3.10",
-     "t": "- Korrektur: Der Kraftstoffpreis aus dem Internet (Tankerkoenig) wurde nie geholt (\"Abruf laeuft ...\" ohne Ende). Die Antwort wird jetzt richtig gelesen, Fehlertexte von Tankerkoenig erscheinen im Klartext.\n- Korrektur: Nach dem Abruf blieb die gemeinsame Internet-Sperre belegt; Telegram-Antworten und der Update-Check kamen danach nicht mehr durch.\n- Telegram: kurze Pause zwischen den Abfragen, damit andere Verbindungen drankommen."
     }
    ]
   }
