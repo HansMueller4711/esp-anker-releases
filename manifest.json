@@ -2,12 +2,16 @@
  "v": 1,
  "channels": {
   "esp32s3": {
-   "version": "1.5.0",
-   "file": "anker-esp32s3-1.5.0.bin",
-   "size": 2027600,
-   "sha256": "6674ce7a9add574ed35183002b2a0bd54fae1c70508ea7705b01fa8855bc5ad2",
-   "sig": "MEYCIQD2UwnLg2cf73JvSH9d9WVlyQaS3CBOSIzPVK/xtSlnTAIhANsmnBPpub5/p397rg1KsMcP2tqp5Ul5wzdQEP3IYwHW",
+   "version": "1.5.1",
+   "file": "anker-esp32s3-1.5.1.bin",
+   "size": 2028512,
+   "sha256": "c2e79864973f00f6646cc6093f5f42eb12a5f038d5e69458425e7add8b2cf315",
+   "sig": "MEUCIGOzutcCc5a9zOxZ5llts7w1DWNaXDYb9HgpphZztH22AiEAtec096cfRU8WW4qVb6k0+jwf+ZivoeGKN+nlyLHgDyk=",
    "log": [
+    {
+     "v": "1.5.1",
+     "t": "- Datensicherung: In der Karte \"Datensicherung\" (Einstellungen) waehlen Sie jetzt direkt, wer die Sicherung bekommt (Einzelchats und Gruppen), und stellen Wochentag und Uhrzeit ein. Die Werte sind dieselben wie auf der Telegram-Seite.\n- Hilfe Kapitel 18 angepasst."
+    },
     {
      "v": "1.5.0",
      "t": "- Neu: woechentliche Gesamtsicherung per Telegram (Konfiguration, Verlauf, Statistik u. a.) an ausgewaehlte Empfaenger (Einzelchats und Gruppen), standardmaessig an, Sonntag 03:30, erster Empfaenger vorausgewaehlt. Sofort per Knopf oder /backup.\n- Standard ohne Geheimnisse, optional verschluesselt (AES-256, Backup-Passwort).\n- Wiederherstellung auf einem neuen Geraet ueber die Weboberflaeche (/restore).\n- Konfiguration wird atomar gespeichert."
@@ -51,20 +55,20 @@
     {
      "v": "1.3.14",
      "t": "- Korrektur: \"Auf Updates pruefen\" scheiterte gelegentlich mit \"Verbindung (connection refused; SSL - Memory allocation failed)\". Die Speicherreserve fuer die verschluesselte Verbindung wird jetzt nach jeder Verbindung (auch Telegram) laufend wieder aufgefuellt; die Pruefung wartet darauf und versucht es bei knappem Speicher bis zu dreimal von selbst. Die Fehlermeldung nennt jetzt Reserve und freien Block."
-    },
-    {
-     "v": "1.3.13",
-     "t": "- Neues Menue der Weboberflaeche mit fuenf Punkten: Status, Verlauf, Statistik, Regeln, Einstellungen. Neu ist die Seite \"Regeln\" (Prioritaet, aktive Vorgabe, manuell eingreifen, Ereignisprotokoll, Optimierung); WLAN, Software-Update, Telegram und Hilfe stehen unter Einstellungen. Alle bisherigen Adressen (/wlan, /update, /help, /tune) funktionieren weiter, Lesezeichen bleiben gueltig.\n- Aufgaben: Oben in der Weboberflaeche zeigt eine Leiste, was noch einzurichten ist (Zaehler, Anker, Preise, optionale Anbindungen, neue Funktionen wie der Kraftstoffvergleich). Aufgaben lassen sich erledigen oder ueberspringen und unter Einstellungen wieder oeffnen; was die Einstellungen schon enthalten, gilt"
     }
    ]
   },
   "esp32c3": {
-   "version": "1.5.0",
-   "file": "anker-esp32c3-1.5.0.bin",
+   "version": "1.5.1",
+   "file": "anker-esp32c3-1.5.1.bin",
    "size": 1525104,
-   "sha256": "4c8641db8476a132fd838e314bf77e53555daf6dcbeff4b8ecabc130e0885363",
-   "sig": "MEUCIGULn2K2FSw+Ags+QKSLNHGFzLzmvxXxJQjEOj3lWAS9AiEAs29CVDFI67D/UOl2OGvOvZPcGCaHaeI4GGagJhz5m90=",
+   "sha256": "7c853faa7badf73c988699191f909bd6557215b0636c9431435b17bc3ee7261e",
+   "sig": "MEQCIHNV6kQFoNOoBdLnUvO/kP3hLTlhaiFZHhAaqM5oEiAfAiA6B4e7e54MDcGZ9TSYetKhzNp47sj18qAF2xDESYk62Q==",
    "log": [
+    {
+     "v": "1.5.1",
+     "t": "- Datensicherung: In der Karte \"Datensicherung\" (Einstellungen) waehlen Sie jetzt direkt, wer die Sicherung bekommt (Einzelchats und Gruppen), und stellen Wochentag und Uhrzeit ein. Die Werte sind dieselben wie auf der Telegram-Seite.\n- Hilfe Kapitel 18 angepasst."
+    },
     {
      "v": "1.5.0",
      "t": "- Neu: woechentliche Gesamtsicherung per Telegram (Konfiguration, Verlauf, Statistik u. a.) an ausgewaehlte Empfaenger (Einzelchats und Gruppen), standardmaessig an, Sonntag 03:30, erster Empfaenger vorausgewaehlt. Sofort per Knopf oder /backup.\n- Standard ohne Geheimnisse, optional verschluesselt (AES-256, Backup-Passwort).\n- Wiederherstellung auf einem neuen Geraet ueber die Weboberflaeche (/restore).\n- Konfiguration wird atomar gespeichert."
@@ -108,10 +112,6 @@
     {
      "v": "1.3.14",
      "t": "- Korrektur: \"Auf Updates pruefen\" scheiterte gelegentlich mit \"Verbindung (connection refused; SSL - Memory allocation failed)\". Die Speicherreserve fuer die verschluesselte Verbindung wird jetzt nach jeder Verbindung (auch Telegram) laufend wieder aufgefuellt; die Pruefung wartet darauf und versucht es bei knappem Speicher bis zu dreimal von selbst. Die Fehlermeldung nennt jetzt Reserve und freien Block."
-    },
-    {
-     "v": "1.3.13",
-     "t": "- Neues Menue der Weboberflaeche mit fuenf Punkten: Status, Verlauf, Statistik, Regeln, Einstellungen. Neu ist die Seite \"Regeln\" (Prioritaet, aktive Vorgabe, manuell eingreifen, Ereignisprotokoll, Optimierung); WLAN, Software-Update, Telegram und Hilfe stehen unter Einstellungen. Alle bisherigen Adressen (/wlan, /update, /help, /tune) funktionieren weiter, Lesezeichen bleiben gueltig.\n- Aufgaben: Oben in der Weboberflaeche zeigt eine Leiste, was noch einzurichten ist (Zaehler, Anker, Preise, optionale Anbindungen, neue Funktionen wie der Kraftstoffvergleich). Aufgaben lassen sich erledigen oder ueberspringen und unter Einstellungen wieder oeffnen; was die Einstellungen schon enthalten, gilt"
     }
    ]
   }
