@@ -2,59 +2,59 @@
  "v": 1,
  "channels": {
   "esp32s3": {
-   "version": "1.5.1",
-   "file": "anker-esp32s3-1.5.1.bin",
-   "size": 2028512,
-   "sha256": "c2e79864973f00f6646cc6093f5f42eb12a5f038d5e69458425e7add8b2cf315",
-   "sig": "MEUCIGOzutcCc5a9zOxZ5llts7w1DWNaXDYb9HgpphZztH22AiEAtec096cfRU8WW4qVb6k0+jwf+ZivoeGKN+nlyLHgDyk=",
+   "version": "1.10.30",
+   "file": "anker-esp32s3-1.10.30.bin",
+   "size": 2582256,
+   "sha256": "3dfea93cb8b07e9b5acbf1920d80b1e5cfd7ec59e21316650407904ceac98060",
+   "sig": "MEQCIEbE7mJ7HKvDD7GCRGx7t5qwIe4HqTlbv6tK/0cjN7V/AiARTwsrJljwMb7z3SNQbOk2MIhLx8Y9m2LAEUWTlaINeA==",
    "log": [
     {
-     "v": "1.5.1",
-     "t": "- Datensicherung: In der Karte \"Datensicherung\" (Einstellungen) waehlen Sie jetzt direkt, wer die Sicherung bekommt (Einzelchats und Gruppen), und stellen Wochentag und Uhrzeit ein. Die Werte sind dieselben wie auf der Telegram-Seite.\n- Hilfe Kapitel 18 angepasst."
+     "v": "1.10.30",
+     "t": "- Waesche und Geschirr (Update ab jeder 1.x; Regelung, Dateiformate unveraendert): Der Trockner zaehlt jetzt schon ab 15 Minuten als Lauf (vorher 25). Ein kurzes Programm wie \"Kurz 20 Min\" steht damit in der Laeufe-Liste, bekommt eine fertig-Meldung und wird als \"Unbenanntes Programm\" gelernt. Knitterschutz (unter 50 Wh) wird weiter nur angehaengt, eine Pause ueber dem Fortsetzungsfenster (20 min) trennt zwei Laeufe. Waschmaschine 15 und Spuelmaschine 20 Minuten unveraendert. Laeufe unter 15 min oder 30 Wh zaehlen weiter nicht."
     },
     {
-     "v": "1.5.0",
-     "t": "- Neu: woechentliche Gesamtsicherung per Telegram (Konfiguration, Verlauf, Statistik u. a.) an ausgewaehlte Empfaenger (Einzelchats und Gruppen), standardmaessig an, Sonntag 03:30, erster Empfaenger vorausgewaehlt. Sofort per Knopf oder /backup.\n- Standard ohne Geheimnisse, optional verschluesselt (AES-256, Backup-Passwort).\n- Wiederherstellung auf einem neuen Geraet ueber die Weboberflaeche (/restore).\n- Konfiguration wird atomar gespeichert."
+     "v": "1.10.29",
+     "t": "- Hauptschleife (Update ab jeder 1.x; Regelung, Dateiformate unveraendert): Neuer Messspeicher GET /api/looptrace: die letzten 32 Abfragen ueber 0,3 s mit Abschnitt, Geraet, Dauer und Ergebnis, dazu Zaehler je Abschnitt. Wallbox, Wechselrichter, Heizung und Zaehlerstaende warten nur noch 0,5 bis 1,2 s auf eine Antwort und werden nach drei Fehlversuchen in Folge zeitweise nicht gefragt (20 bis 60 s, Wallbox 30 s); Anzeige und Fehlertext wie bisher. Stromzaehler und Anker unveraendert."
     },
     {
-     "v": "1.4.8",
-     "t": "- Display: Fluss-Seite zeichnet Karten, Texte und Schlaeuche nur noch bei geaenderten Daten neu (zweiter Bildspeicher im PSRAM) und hasht nur beruehrte Baender; weniger Last auf Kern 0, Anzeige unveraendert.\n- Neu: ui_static_rebuilds in /api/status."
+     "v": "1.10.28",
+     "t": "- Geraete-Empfehlung (Update ab jeder 1.x; Regelung, Dateiformate unveraendert): Neu \"Geraete vor Speicher\", ab Werk AN (auch nach dem Update; abschaltbar unter Einstellungen > Waesche und Geschirr): Waschen, Trocknen und Spuelen nehmen den Sonnenstrom zuerst, der Speicher bekommt den Rest. Startzeiten und Stufen werden ohne Speicher bewertet, \"Sonne verplant\" entfaellt, die Spuelmaschine bekommt auch an schwachen Tagen eine Uhrzeit. Ersparnis, Telegram und Selbstpruefung rechnen real mit Speicher (neue Felder rc, sb). Ohne Speicher oder bei Preisen je Stunde ohne Wirkung."
     },
     {
-     "v": "1.4.7",
-     "t": "- Display: Fluss-Seite sendet nur noch die geaenderten Bildbereiche (Teilbild) statt jedes Mal das Vollbild; soll Kern 0 entlasten, Animation unveraendert, Auffrischung weiter alle 3 s.\n- Neu: ui_draw_us, ui_push_us, ui_push_bands in /api/status."
+     "v": "1.10.27",
+     "t": "- Geraete-Empfehlung (Update ab jeder 1.x; Regelung, Dateiformate unveraendert): Neu Echtzeit-Korrektur: kommt gerade deutlich mehr Sonne als vorhergesagt (15-Minuten-Mittel der PV-Leistung ab 1,3-fach der Prognose der laufenden Stunde, aus unter 1,15-fach), rechnet die Empfehlung den Resttag mit angehobener Prognose (hoechstens doppelt, klingt mit Halbwert 2 h ab, keine Bedeckt-Daempfung, Vorsichtstest relativ zur angehobenen Prognose). Neuer Grund \"now\". Die angezeigte Prognose bleibt roh. Wetterabruf bei Tageslicht stuendlich statt alle 3 Stunden, nachts wie bisher. Mindestversion 1.x."
     },
     {
-     "v": "1.4.6",
-     "t": "- Telegram: Dauerverbindung wieder an (kein TLS-Handshake alle 11 s mehr, Puffer im PSRAM); ohne Befehle Abfragepause 25 s statt 10 s.\n- Neu: Handshake-Dauer in /api/status (tls_hs_last, tls_hs_max).\n- Statistik: Regelguete-Stunden zaehlen auch bei Zaehlertakt 300/400 ms (Sekunden aus Millisekunden aufsummiert)."
+     "v": "1.10.26",
+     "t": "- Geraete-Empfehlung (Update ab jeder 1.x; Regelung, Dateiformate unveraendert): Neu \"Jetzt frei\" in der Tageskarte und im Tipp (nur Anzeige): Einspeisung plus Speicherladung der letzten 10 Minuten gegen die Geraetespitze, ein ab Spitze x 1,1, aus unter x 0,8 (kein Flackern), auch bei \"egal\" oder \"unsicher\". Der Vorsichtstest rechnet bei nach oben korrigierter Prognose relativ zur korrigierten statt zur rohen und meldet seltener faelschlich \"unsicher\". Neue Felder free und fl in GET /api/geraete."
     },
     {
-     "v": "1.4.5",
-     "t": "- Anzeige/Regelung: TLS-Aufgaben wieder ohne Kernbindung (1.4.4 ruckelte, MQTT-Abbrueche).\n- Sicherheit: haengender Firmware-Upload wird nach 60 s abgebrochen.\n- Statistik: Wiederanlauf nach Stromausfall beim Schreiben, Konto vor Neustart gesichert.\n- Behoben: Kostal ungueltige Werte, abgelehnte Befehle ohne Lebenszeichen, kleine Speicher-/JSON-Fehler."
+     "v": "1.10.25",
+     "t": "- Programme (Update ab jeder 1.x; Regelung unveraendert): Neue Geraete bekommen neutrale Programmnamen (Programm 1 bis 3, Trockner und Spuelmaschine 1 und 2) statt Baumwolle, Eco usw.; bestehende Namen und Werte bleiben. Ein Lauf, der zu keinem bestaetigten (benannten oder schon gemessenen) Programm passt, bildet einen Kandidaten \"Unbenanntes Programm\" und der Hinweis fragt \"Neues Programm erkannt - wie heisst es?\", statt an ein ungemessenes Werkprogramm gehaengt zu werden."
     },
     {
-     "v": "1.4.4",
-     "t": "- Stabiler: grosse Puffer im PSRAM (S3, rund 60 KB intern frei), weniger Stapel im Web-Server, keine Speicherzerstueckelung durch MQTT/JSON.\n- Regelung ruhiger: Tasmota-Zaehlerstaende ohne Zweitabfrage, TLS-Aufgaben auf Kern 0.\n- Autarkie neu: Netzstrom im Akku zaehlt beim Entladen als Netzbezug; alle Anzeigen gleich, Werte aendern sich. Anker-PV ueberall als Erzeugung.\n- Behoben: Kostal Plenticore Wortfolge, \"Haus\" alter Tage, Regelguete bei Takt ueber 1,5 s, Wirkungsgrad Akku im Web, Befehle nur echte Zahlen.\n- Sicherheit: DNS-Rebinding abgewehrt, Update-Seite mit Digest, Telegram-Einstellungen nur mit Anmeldung.\n- Entfernt: OLED/ESP8266-Reste, /ext; Hilfe aktualisiert, Dezimalkomma."
+     "v": "1.10.24",
+     "t": "- Programme (Update ab jeder 1.x; Regelung unveraendert): Ein Lauf von Waschmaschine, Trockner oder Spuelmaschine laesst sich nachtraeglich einem Programm zuweisen: in \"Letzte Laeufe\" (Prognose und Geraete-Detailansicht) antippen, \"Programm war ...\" waehlen, zweimal bestaetigen. Der ESP rechnet die betroffenen Programme aus den gespeicherten Laeufen neu; \"Rueckgaengig\" nimmt die letzte Zuweisung zurueck. Gleiches Dateiformat. Mindestversion 1.x."
     },
     {
-     "v": "1.4.3",
-     "t": "- Behoben: Absturz direkt nach dem Einschalten (Task arduino_events): Der WLAN-Ereignis-Task las die Handler-Liste, waehrend sie beim Start noch gefuellt wurde. Der Handler wird jetzt vor dem WLAN-Start eingetragen.\n- Behoben: Ein Firmware-Upload ueber /update konnte das Geraet zum Absturz bringen (Web-Task und Haupttask griffen gleichzeitig auf MQTT zu). Der Haupttask haelt jetzt an, sobald ein Upload beginnt; bricht er ab, startet das Geraet nach 30 s neu.\n- Neu: Die letzten drei verschiedenen Absturz-Zusammenfassungen bleiben dauerhaft gespeichert (sys.crash_hist in /api/status)."
+     "v": "1.10.23",
+     "t": "- Messsteckdosen per MQTT (ohne Energiezaehler; Update ab jeder 1.x; Regelung unveraendert): Die Laeufe von Waschmaschine, Trockner und Spuelmaschine werden jetzt auch dann gelernt und gruppiert, wenn die Energie aus der Leistung gerechnet wird (Kurve und Energie muessen zusammenpassen). Sie landen zuerst als \"Unbenanntes Programm\" und aendern die Werte der Werk- und Vorlagenprogramme und damit die Empfehlung nicht, bis Sie benennen oder zusammenlegen. Gleiches Dateiformat, alte Daten bleiben gueltig. Mindestversion 1.x."
     },
     {
-     "v": "1.4.2",
-     "t": "- Behoben: Das Geraet startete alle paar Stunden mit \"Exception/Panic\" neu (Telegram: \"Neustart nach Absturz\"). Ein Fehler der Arduino-Bibliothek schloss nach jeder TLS-Verbindung (Telegram, Update-Pruefung, Spritpreis) den Datei-Deskriptor 0 und damit eine offene Datei eines anderen Tasks. Die TLS-Verbindungen setzen den Socket jetzt selbst zurueck.\n- Neu: Nach einem Absturz fasst das Geraet den Core-Dump zusammen (Task, Programmzaehler, Aufrufkette) und zeigt ihn unter Status (sys.crash) und in der Telegram-Fehlerinfo. GET /api/coredump (Admin) liefert den Dump fuer die Auswertung am PC (nur S3)."
+     "v": "1.10.22",
+     "t": "- Statistik und Prognose (Update ab jeder 1.x; Regelung und Wallbox-Steuerung unveraendert): Die Wallbox zaehlt erst ab 10 W als Ladung. Der Standby (etwa 1 W) erzeugt keine kWh, Kilometer oder Ersparnis \"E-Auto statt Verbrenner\" mehr; der Zaehlerstand der Wallbox wird dabei ohne Sprung mitgefuehrt. Tage unter 0,1 kWh Wallbox gelten in der Auswertung als 0 (Altwerte bleiben gespeichert). Prognose-Lernen: Die Gruende fuer abgelehnte Stunden des letzten Lernlaufs bleiben ueber Neustarts erhalten (Geraetespeicher, keine neue Datei) und stehen unter Lernfortschritt. Mindestversion 1.x."
     },
     {
-     "v": "1.4.1",
-     "t": "- Behoben: Auf der Telegram-Seite wurde die Tabelle \"Was geht wohin\" auf dem Handy abgeschnitten. Auf schmalen Bildschirmen ist jede Nachrichtenart jetzt eine Karte mit den Empfaengern untereinander.\n- Behoben: Anker und Hausanschluss-Zaehler lassen sich getrennt einrichten. Die Anker-Adresse konnte bisher nicht gespeichert werden, solange die Zaehler-Adresse fehlte.\n- Behoben (S3): Telegram-Befehle (z. B. /tag), Update-Pruefung und Spritpreis fielen nach Minuten bis Stunden aus (\"SSL - Memory allocation failed\"), weil der interne Speicher zerstueckelt war. Die TLS-Puffer liegen jetzt im PSRAM; der groesste freie interne Block bleibt bei rund 60 KB.\n- Entfernt: Die Unterstuetzung fuer den ES"
+     "v": "1.10.21",
+     "t": "- Weboberflaeche (Update ab jeder 1.x, nur Anzeige; Regelung unveraendert): Der Browser merkt die letzte Ansicht (Statistik-Zeitraum, Verlauf; erstmals Tageskurve). Die Tageskurve waehlt Reihen wie Grafana: Tipp zeigt nur diese, weitere kommen dazu, \"Alle einblenden\". Prognose: oben \"Heute und morgen\" mit Aktualisieren, dann Aussicht und ein Tipp mit Symbolen, Tooltip mit kWh bis zur Stunde; klarere Texte in Pruefung und Lernfortschritt. Mindestversion 1.x."
     },
     {
-     "v": "1.4.0",
-     "t": "- Neu: Aufgabe \"Design und Farben waehlen\" in der Aufgabenliste (S3): erscheint als offene Aufgabe und gilt als erledigt, sobald ein Design gewaehlt wird.\n- Geaendert (ESP32-C3): Die eingebaute Hilfeseite (/help) und der Hilfe-Eintrag in den Einstellungen entfallen, das spart rund 35 KB Flash im knappen App-Slot. Eine Online-Hilfe auf GitHub ist geplant. Der S3 beh\u00e4lt die eingebaute Hilfe.\n- Neu: Sieben waehlbare Designs fuer Display und Weboberflaeche: Klassisch (wie bisher), Glas (iOS-Stil), Material (Android-Stil), Tron, Clean Weiss, Clean Schwarz und Kommando. Die Auswahl steht am Display unter System > Anzeige und in der Weboberflaeche unter Einstellungen > Geraet und Anzeige (\"Design u"
+     "v": "1.10.20",
+     "t": "- WLAN-Portal (Einrichtungs-Hotspot Anker-ESP-Setup; Update ab jeder 1.x, Regelung unveraendert): Die Einrichtungsseite ist deutsch und im Gesamtdesign (gruenes Kopfband, hell/dunkel, grosse Tippflaechen, Signalbalken, Passwort anzeigen, klarer Ablauf nach dem Speichern, Geraete-Info mit Firmware). Im offenen Hotspot gibt es kein Firmware-Hochladen und kein Loeschen der WLAN-Daten mehr (Update weiter in der Weboberflaeche); neu: Hinweis nach gescheitertem Erststart. Hilfe-Budget 89500 B. Mindestversion 1.x."
     },
     {
-     "v": "1.3.14",
-     "t": "- Korrektur: \"Auf Updates pruefen\" scheiterte gelegentlich mit \"Verbindung (connection refused; SSL - Memory allocation failed)\". Die Speicherreserve fuer die verschluesselte Verbindung wird jetzt nach jeder Verbindung (auch Telegram) laufend wieder aufgefuellt; die Pruefung wartet darauf und versucht es bei knappem Speicher bis zu dreimal von selbst. Die Fehlermeldung nennt jetzt Reserve und freien Block."
+     "v": "1.10.19",
+     "t": "- Einrichtung am Display (nur Touch-Geraete, Update ab jeder 1.x; Regelung unveraendert): \"Drehen\" in Schritt 1 startet keine Kalibrierung mehr, sie folgt einmal in Schritt 2 mit kurzer Erklaerung (\"Touch einlernen\"). Ist sie gelernt, gilt die Probe als bestanden: nie eine zweite Kalibrierung. System > Drehen unveraendert. Mindestversion 1.x."
     }
    ]
   },
