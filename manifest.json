@@ -2,59 +2,59 @@
  "v": 1,
  "channels": {
   "esp32s3": {
-   "version": "1.10.30",
-   "file": "anker-esp32s3-1.10.30.bin",
-   "size": 2582256,
-   "sha256": "3dfea93cb8b07e9b5acbf1920d80b1e5cfd7ec59e21316650407904ceac98060",
-   "sig": "MEQCIEbE7mJ7HKvDD7GCRGx7t5qwIe4HqTlbv6tK/0cjN7V/AiARTwsrJljwMb7z3SNQbOk2MIhLx8Y9m2LAEUWTlaINeA==",
+   "version": "1.10.52",
+   "file": "anker-esp32s3-1.10.52.bin",
+   "size": 2729648,
+   "sha256": "579620a06d59223a44df03fc5cccc048b034549993de956f3a429d648c34d31d",
+   "sig": "MEQCIG1tmaKpf2vZwrtp4b8QlyMtYmFmAW1XvIFcYOe4aCrwAiA0ENVVTL/Xjf3DXAWsTQlx/i3MjkqeOGDGDEFEQtIwRQ==",
    "log": [
     {
-     "v": "1.10.30",
-     "t": "- Waesche und Geschirr (Update ab jeder 1.x; Regelung, Dateiformate unveraendert): Der Trockner zaehlt jetzt schon ab 15 Minuten als Lauf (vorher 25). Ein kurzes Programm wie \"Kurz 20 Min\" steht damit in der Laeufe-Liste, bekommt eine fertig-Meldung und wird als \"Unbenanntes Programm\" gelernt. Knitterschutz (unter 50 Wh) wird weiter nur angehaengt, eine Pause ueber dem Fortsetzungsfenster (20 min) trennt zwei Laeufe. Waschmaschine 15 und Spuelmaschine 20 Minuten unveraendert. Laeufe unter 15 min oder 30 Wh zaehlen weiter nicht."
+     "v": "1.10.52",
+     "t": "- Watchdog nach Update (Update ab jeder 1.x; Regelung, MQTT, Golden, Web unveraendert; Touch-Geraet): Die einmalige Umstellung der Tageskurve von DY01 auf DY02 laeuft jetzt in kleinen Schritten (je Sekunde ein Block von 3 kB) statt am Stueck (bis 92 kB, knapp 1 s im Haupttask); bei Abbruch bleibt die alte Datei gueltig. Ob sie den einmaligen Reset \"Watchdog\" nach 1.10.50 ausloeste, ist NICHT belegt (Vermutung). Neu: sys.reset_detail und sys.reset_hist in /api/status nennen den genauen Grund (INT_WDT, TASK_WDT, WDT_OTHER), Firmware vorher>jetzt und den Task des Core-Dumps; die Telegram-Meldung nennt den Grund. Keine neue Datei."
     },
     {
-     "v": "1.10.29",
-     "t": "- Hauptschleife (Update ab jeder 1.x; Regelung, Dateiformate unveraendert): Neuer Messspeicher GET /api/looptrace: die letzten 32 Abfragen ueber 0,3 s mit Abschnitt, Geraet, Dauer und Ergebnis, dazu Zaehler je Abschnitt. Wallbox, Wechselrichter, Heizung und Zaehlerstaende warten nur noch 0,5 bis 1,2 s auf eine Antwort und werden nach drei Fehlversuchen in Folge zeitweise nicht gefragt (20 bis 60 s, Wallbox 30 s); Anzeige und Fehlertext wie bisher. Stromzaehler und Anker unveraendert."
+     "v": "1.10.51",
+     "t": "- Messsteckdosen im Telegram-Tagesbild (Update ab jeder 1.x; Regelung, MQTT, Golden, Web und /api/day unveraendert; Touch-Geraet): Das Bild zeigt von den Messsteckdosen nur die Spitzen, keine Grundlast: Haushaltsgeraete (Waschmaschine/Trockner/Spuelmaschine) als Summe, 3D-Drucker/Sonstige je eine Linie, nur wenn an dem Tag ein Lauf ueber der Schwelle (mindestens 15 W, 5 % der Tagesspitze, Standby) und mindestens 2 Minuten lag; sonst Bild unveraendert, Legende nur fuer sichtbare Reihen. Keine neue Datei."
     },
     {
-     "v": "1.10.28",
-     "t": "- Geraete-Empfehlung (Update ab jeder 1.x; Regelung, Dateiformate unveraendert): Neu \"Geraete vor Speicher\", ab Werk AN (auch nach dem Update; abschaltbar unter Einstellungen > Waesche und Geschirr): Waschen, Trocknen und Spuelen nehmen den Sonnenstrom zuerst, der Speicher bekommt den Rest. Startzeiten und Stufen werden ohne Speicher bewertet, \"Sonne verplant\" entfaellt, die Spuelmaschine bekommt auch an schwachen Tagen eine Uhrzeit. Ersparnis, Telegram und Selbstpruefung rechnen real mit Speicher (neue Felder rc, sb). Ohne Speicher oder bei Preisen je Stunde ohne Wirkung."
+     "v": "1.10.50",
+     "t": "- Messsteckdosen in der Tageskurve (Update ab jeder 1.x; Regelung, MQTT, Golden unveraendert; Touch-Geraet): Jede eingerichtete Messsteckdose (bis 6) ist unter Auswertung > Verlauf > Kurve eine eigene Reihe (Minutenmittel; offline = Luecke, nicht 0 W). Waschmaschine, Trockner und Spuelmaschine zusaetzlich als Summe \"Haushaltsgeraete\" (Einzelgeraete einblendbar); alles Anteile am Haus, nicht addiert. /day0.bin im Format DY02 (Satz 64 statt 52 Byte, PSRAM +34,6 kB), die alte Datei wird beim Start einmal atomar umgeschrieben. /api/day: neuer Schluessel m. Noch nicht im Telegram-Bild und am Display."
     },
     {
-     "v": "1.10.27",
-     "t": "- Geraete-Empfehlung (Update ab jeder 1.x; Regelung, Dateiformate unveraendert): Neu Echtzeit-Korrektur: kommt gerade deutlich mehr Sonne als vorhergesagt (15-Minuten-Mittel der PV-Leistung ab 1,3-fach der Prognose der laufenden Stunde, aus unter 1,15-fach), rechnet die Empfehlung den Resttag mit angehobener Prognose (hoechstens doppelt, klingt mit Halbwert 2 h ab, keine Bedeckt-Daempfung, Vorsichtstest relativ zur angehobenen Prognose). Neuer Grund \"now\". Die angezeigte Prognose bleibt roh. Wetterabruf bei Tageslicht stuendlich statt alle 3 Stunden, nachts wie bisher. Mindestversion 1.x."
+     "v": "1.10.49",
+     "t": "- Schattenwerte der Tageskorrektur (Update ab jeder 1.x; Regelung, Planung, MQTT-Werte der Planung, Golden unveraendert; neue Datei /pvshadow.bin, nicht in der Gesamtsicherung; Touch-Geraet): Das Geraet schreibt nur zum Auswerten mit, wie die Tageskorrektur der PV-Prognose am Morgen wirkt: je Tag die ersten Rechnungen ab 8 bis 14 Uhr und abends das Ist je Stunde (Prognose, Ist, Faktor mit Grund, Resttag roh/korrigiert, Ueberschuss roh/veroeffentlicht, Faktoren dreier anderer Verfahren). Bis 100 Tage; Abruf GET /api/pvshadow?days=N (&csv=1), fuenf MQTT-Themen geraete/schatten_*, Auswertung tools/analyse_pvshadow.py."
     },
     {
-     "v": "1.10.26",
-     "t": "- Geraete-Empfehlung (Update ab jeder 1.x; Regelung, Dateiformate unveraendert): Neu \"Jetzt frei\" in der Tageskarte und im Tipp (nur Anzeige): Einspeisung plus Speicherladung der letzten 10 Minuten gegen die Geraetespitze, ein ab Spitze x 1,1, aus unter x 0,8 (kein Flackern), auch bei \"egal\" oder \"unsicher\". Der Vorsichtstest rechnet bei nach oben korrigierter Prognose relativ zur korrigierten statt zur rohen und meldet seltener faelschlich \"unsicher\". Neue Felder free und fl in GET /api/geraete."
+     "v": "1.10.48",
+     "t": "- Netzabfragen entkoppeln, Stufe 1 (Update ab jeder 1.x; Regelung, MQTT, Golden, Dateiformate unveraendert; nur Touch-Geraet): Wallbox, PV/Heizung und Zaehlerstaende stapeln sich nicht mehr in einem Zyklus (nach einer Abfrage ueber 0,15 s kommt die naechste im folgenden Zyklus) und pausieren 8 s nach einer erfolgreichen, aber ueber 0,8 s langsamen Antwort. Zaehler und Anker unveraendert. /gerhist.bin und /pvday.bin schreibt ein Hintergrund-Task statt der Regelschleife. Neu in /api/looptrace: Mittel/Maximum je Abschnitt und Ziel (st, wh), defer, slowpen; sys.ger.bg."
     },
     {
-     "v": "1.10.25",
-     "t": "- Programme (Update ab jeder 1.x; Regelung unveraendert): Neue Geraete bekommen neutrale Programmnamen (Programm 1 bis 3, Trockner und Spuelmaschine 1 und 2) statt Baumwolle, Eco usw.; bestehende Namen und Werte bleiben. Ein Lauf, der zu keinem bestaetigten (benannten oder schon gemessenen) Programm passt, bildet einen Kandidaten \"Unbenanntes Programm\" und der Hinweis fragt \"Neues Programm erkannt - wie heisst es?\", statt an ein ungemessenes Werkprogramm gehaengt zu werden."
+     "v": "1.10.47",
+     "t": "- Display-Startseite \"Mitte\" (Update ab jeder 1.x; Regelung, MQTT, Dateien unveraendert; nur Touch-Geraet): Der Speicher ist ein schlanker Ring in der Mitte (Ladestand gross darin, ohne Prozentzeichen), links woher (Netz gross, Solar), rechts wohin (Haus, eAuto, Heizung). Richtung: Dreieck vor der Leistung, Tuerkis oder Orange und ein pulsierender Punkt am Bogenende. Keine Batterie, Winkel und Kacheln mehr; eine Meldezeile fuer Zustand und Hinweis. Fuellung nur unter 15 % rot. Nur im Host-Simulator geprueft, Zeichenzeit am Panel noch unbekannt."
     },
     {
-     "v": "1.10.24",
-     "t": "- Programme (Update ab jeder 1.x; Regelung unveraendert): Ein Lauf von Waschmaschine, Trockner oder Spuelmaschine laesst sich nachtraeglich einem Programm zuweisen: in \"Letzte Laeufe\" (Prognose und Geraete-Detailansicht) antippen, \"Programm war ...\" waehlen, zweimal bestaetigen. Der ESP rechnet die betroffenen Programme aus den gespeicherten Laeufen neu; \"Rueckgaengig\" nimmt die letzte Zuweisung zurueck. Gleiches Dateiformat. Mindestversion 1.x."
+     "v": "1.10.46",
+     "t": "- C3-Bereinigung (Update ab jeder 1.x; Regelung, MQTT, Dateien, Golden unveraendert; Touch-Geraet): Der ESP32-C3 wird nicht mehr gebaut (seine letzte Firmware 1.5.1 bleibt unveraendert). Umgebung esp32c3, Partitionstabelle, Weiche HEADLESS, C3-Startseite und schlichte Seitenfassungen aus der Firmware entfernt; Hilfe ohne C3-Hinweise. Verhalten des S3 gleich."
     },
     {
-     "v": "1.10.23",
-     "t": "- Messsteckdosen per MQTT (ohne Energiezaehler; Update ab jeder 1.x; Regelung unveraendert): Die Laeufe von Waschmaschine, Trockner und Spuelmaschine werden jetzt auch dann gelernt und gruppiert, wenn die Energie aus der Leistung gerechnet wird (Kurve und Energie muessen zusammenpassen). Sie landen zuerst als \"Unbenanntes Programm\" und aendern die Werte der Werk- und Vorlagenprogramme und damit die Empfehlung nicht, bis Sie benennen oder zusammenlegen. Gleiches Dateiformat, alte Daten bleiben gueltig. Mindestversion 1.x."
+     "v": "1.10.45",
+     "t": "- eAuto gleichrangig, Was lohnt sich heute? auf Start (Update ab jeder 1.x; Regelung, MQTT, Golden unveraendert; /gercfg.json Version 1, optionales Feld evNoWb nur wenn wahr; Touch-Geraet): Das eAuto steht gleichrangig neben Waschmaschine, Trockner, Spuelmaschine (/geraete#eauto, Wallbox als Zusatz); ohne lesbare Wallbox als Schaetzung rechenbar; die wirkungslose Einstellung evPrio ist aus der Oberflaeche entfernt (Feld bleibt lesbar). Neu GET /api/geraete/rank (Schnappschuss der Rangliste): Kurzkarte der Startseite mit Zeilen; am Display Rang 5 der Hinweiszeile und Seite Was lohnt sich heute? (dort Euro als Wort). Nur im Host-Simulator geprueft, nicht am Panel."
     },
     {
-     "v": "1.10.22",
-     "t": "- Statistik und Prognose (Update ab jeder 1.x; Regelung und Wallbox-Steuerung unveraendert): Die Wallbox zaehlt erst ab 10 W als Ladung. Der Standby (etwa 1 W) erzeugt keine kWh, Kilometer oder Ersparnis \"E-Auto statt Verbrenner\" mehr; der Zaehlerstand der Wallbox wird dabei ohne Sprung mitgefuehrt. Tage unter 0,1 kWh Wallbox gelten in der Auswertung als 0 (Altwerte bleiben gespeichert). Prognose-Lernen: Die Gruende fuer abgelehnte Stunden des letzten Lernlaufs bleiben ueber Neustarts erhalten (Geraetespeicher, keine neue Datei) und stehen unter Lernfortschritt. Mindestversion 1.x."
+     "v": "1.10.44",
+     "t": "- Display-Startseite neu (Update ab jeder 1.x; Regelung, MQTT, Dateien unveraendert; nur Touch-Geraet): links die Speicherkarte mit dem Ladestand als Zahl in der Batterie, Winkel nach oben (laedt) oder unten (entlaedt), Leistung darunter (Laden tuerkis, Entladen orange); rechts 3, 4 oder 5 gleich grosse Kacheln (Solar, Haus, Netz, eAuto/Heizung nur wenn vorhanden), kein \"Alles laeuft\". Zustandszeile nur bei Abweichung, darunter eine Hinweiszeile (Stoerung, Einrichtung am Handy fortsetzen, Reihenfolge, Anker-Grenze, Restsonne). Fluss: Speicher-Leistung gross. Nur im Host-Simulator geprueft, noch nicht am Panel."
     },
     {
-     "v": "1.10.21",
-     "t": "- Weboberflaeche (Update ab jeder 1.x, nur Anzeige; Regelung unveraendert): Der Browser merkt die letzte Ansicht (Statistik-Zeitraum, Verlauf; erstmals Tageskurve). Die Tageskurve waehlt Reihen wie Grafana: Tipp zeigt nur diese, weitere kommen dazu, \"Alle einblenden\". Prognose: oben \"Heute und morgen\" mit Aktualisieren, dann Aussicht und ein Tipp mit Symbolen, Tooltip mit kWh bis zur Stunde; klarere Texte in Pruefung und Lernfortschritt. Mindestversion 1.x."
+     "v": "1.10.43",
+     "t": "- Schleifenzeit: Diagnose und Entlastung (Update ab jeder 1.x; Regelung, MQTT, Dateiformate unveraendert; nur Touch-Geraet). Neu in /api/status: sys.loop_parts (Zeit je Teil der Hauptschleife, 60 s) und sys.fsw (Dauer der Dateischreibvorgaenge, davon im Haupttask). Die Dateien der Messgeraete (/mess_hist.bin, /gerprog.bin) schreibt ein kurzer Hintergrund-Task statt der Regelschleife; der Rechen-Task der Geraete-Empfehlung gibt nach hoechstens 10 ms die CPU ab. Web-Task rund 1,3 kB mehr Stapel frei, LED-Task +512 B. Satz \"knapp unter\" mit Fehlbetrag in W, wenn Ueberschuss und Wallbox-Schwelle gerundet gleich sind. Die Ursache der laengeren Schleifenzeit ist noch nicht belegt."
     },
     {
-     "v": "1.10.20",
-     "t": "- WLAN-Portal (Einrichtungs-Hotspot Anker-ESP-Setup; Update ab jeder 1.x, Regelung unveraendert): Die Einrichtungsseite ist deutsch und im Gesamtdesign (gruenes Kopfband, hell/dunkel, grosse Tippflaechen, Signalbalken, Passwort anzeigen, klarer Ablauf nach dem Speichern, Geraete-Info mit Firmware). Im offenen Hotspot gibt es kein Firmware-Hochladen und kein Loeschen der WLAN-Daten mehr (Update weiter in der Weboberflaeche); neu: Hinweis nach gescheitertem Erststart. Hilfe-Budget 89500 B. Mindestversion 1.x."
+     "v": "1.10.42",
+     "t": "- Was der ESP gespart hat (Update ab jeder 1.x; Regelung und MQTT unveraendert; Touch-Geraet, der C3 hat die Karte nicht; /mess_hist.bin und /stat.bin werden beim Start einmal umgeschrieben, der Rueckweg ist die Sicherung vor dem Update): Neue Karte unter Auswertung > Statistik, nur belegte Werte, gezaehlt ab 1.10.42. Waesche und Geschirr: Laeufe im empfohlenen Startfenster und der damals angezeigte Vorteil in Euro. Wallbox: kWh, die wegen der Sperre nicht aus dem Speicher ins Auto gingen (ohne Euro-Betrag). Speicher gesamt mit dem Hinweis, dass der ESP-Anteil nicht messbar ist."
     },
     {
-     "v": "1.10.19",
-     "t": "- Einrichtung am Display (nur Touch-Geraete, Update ab jeder 1.x; Regelung unveraendert): \"Drehen\" in Schritt 1 startet keine Kalibrierung mehr, sie folgt einmal in Schritt 2 mit kurzer Erklaerung (\"Touch einlernen\"). Ist sie gelernt, gilt die Probe als bestanden: nie eine zweite Kalibrierung. System > Drehen unveraendert. Mindestversion 1.x."
+     "v": "1.10.41",
+     "t": "- Lauf-Ende und Laeufe nachbearbeiten (Update ab jeder 1.x; Regelung, MQTT, Dateiformate unveraendert; Messsteckdosen, nur Touch-Geraet): \"fertig\" kommt bei bekannten Programmen nicht vor der gelernten Gesamtdauer, solange die Leistung auf der gelernten Endphase liegt (Spuelmaschine 21 W statt Ende nach 47 min); unbekannt: Haltezeit des Geraets bis 20 min. Unter Geraete > Letzte Laeufe: Ende setzen (hh:mm oder -5/+5), mit dem folgenden Lauf zusammenfuehren, verwerfen, Rueckgaengig. Telegram: kuerzer als gelernt = \"evtl. noch nicht zu Ende\" statt geratenem Programm."
     }
    ]
   },
